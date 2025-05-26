@@ -32,17 +32,13 @@ jobs:
           /p:DeployOnBuild=true
           /p:WebPublishMethod=FileSystem
           /p:PublishProvider=FileSystem
-          /p:PublishUrl=published/tdc
-          /p:AllowUntrustedCertificate=true
-          /p:VisualStudioVersion=17.0
-          /t:Build;PipelinePreDeployCopyAllFilesToOneFolder
           /verbosity:quiet
 
       - name: Upload TDC artifact
         uses: actions/upload-artifact@v4
         with:
           name: ASP-app-tdc
-          path: published/tdc/
+          path: InvoiceGenerator.TDC/bin/release
 
       - name: Publish InvoiceGenerator.TS
         run: >
@@ -52,17 +48,14 @@ jobs:
           /p:DeployOnBuild=true
           /p:WebPublishMethod=FileSystem
           /p:PublishProvider=FileSystem
-          /p:PublishUrl=published/ts
           /p:AllowUntrustedCertificate=true
-          /p:VisualStudioVersion=17.0
-          /t:Build;PipelinePreDeployCopyAllFilesToOneFolder
           /verbosity:quiet
 
       - name: Upload TS artifact
         uses: actions/upload-artifact@v4
         with:
           name: ASP-app-ts
-          path: published/ts/
+          path: InvoiceGenerator.TS/bin/release
 
 
   deploy-tdc:
@@ -80,6 +73,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ASP-app-tdc
+          path: ASP-app-tdc
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -111,6 +105,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ASP-app-ts
+          path: ASP-app-ts
       
       - name: Login to Azure
         uses: azure/login@v2
