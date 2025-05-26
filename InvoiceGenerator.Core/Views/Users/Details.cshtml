@@ -1,4 +1,4 @@
-﻿@model TDC_Invoice_Generator.ViewModels.Users.DetailUserViewModel
+﻿@model InvoiceGenerator.Core.ViewModels.Users.DetailUserViewModel
 @{
     ViewBag.Title = "User Details";
     ViewBag.Name = "User";
@@ -72,7 +72,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach (TDC_Invoice_Generator.ViewModels.Users.Role item in Model.Roles)
+                                                @foreach (InvoiceGenerator.Core.ViewModels.Users.Role item in Model.Roles)
                                                 {
                                                     <tr class="td-wrap">
                                                         <td>

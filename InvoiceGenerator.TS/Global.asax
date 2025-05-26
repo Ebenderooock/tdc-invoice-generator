@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="InvoiceGenerator.TDC.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="InvoiceGenerator.TS.MvcApplication" Language="C#" %>

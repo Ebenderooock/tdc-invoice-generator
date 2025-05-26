@@ -7,9 +7,9 @@ using System.IO;
 using System.Linq;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
-using TDC_Invoice_Generator.Models;
+using InvoiceGenerator.Core.Models;
 
-namespace TDC_Invoice_Generator.Helper
+namespace InvoiceGenerator.Core.Helper
 {
     public static class InvoiceDownloader
     {

@@ -10,6 +10,13 @@
     <RootNamespace>InvoiceGenerator.Core</RootNamespace>
     <AssemblyName>InvoiceGenerator.Core</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44336</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
     <FileAlignment>512</FileAlignment>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
@@ -296,12 +303,24 @@
     <Content Include="Content\Main.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\Site.css" />
-    <Content Include="Helper\ExcelTemplates\SublimeTastes\invoice-template.xlsx" />
-    <Content Include="Helper\ExcelTemplates\SublimeTastes\monthly-template.xlsx" />
-    <Content Include="Helper\ExcelTemplates\TDC\invoice-template.xlsx" />
-    <Content Include="Helper\ExcelTemplates\TDC\monthly-template.xlsx" />
-    <Content Include="Helper\ExcelTemplates\TrueSouth\invoice-template.xlsx" />
-    <Content Include="Helper\ExcelTemplates\TrueSouth\monthly-template.xlsx" />
+    <Content Include="Helper\ExcelTemplates\SublimeTastes\invoice-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Helper\ExcelTemplates\SublimeTastes\monthly-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Helper\ExcelTemplates\TDC\invoice-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Helper\ExcelTemplates\TDC\monthly-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Helper\ExcelTemplates\TrueSouth\invoice-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Helper\ExcelTemplates\TrueSouth\monthly-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\author.jpg" />
     <Content Include="Images\SublimeTastes\SublimeTastes.png" />
     <Content Include="Images\tdc-icon.ico" />

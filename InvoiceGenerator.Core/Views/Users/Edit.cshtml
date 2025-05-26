@@ -1,5 +1,5 @@
-﻿@using TDC_Invoice_Generator.Helper
-@model TDC_Invoice_Generator.ViewModels.Users.EditUserViewModel
+﻿@using InvoiceGenerator.Core.Helper
+@model InvoiceGenerator.Core.ViewModels.Users.EditUserViewModel
 @{
     ViewBag.Title = "User Edit";
     ViewBag.Name = "User";
@@ -75,7 +75,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach (TDC_Invoice_Generator.ViewModels.Users.Role item in Model.Roles)
+                                                    @foreach (InvoiceGenerator.Core.ViewModels.Users.Role item in Model.Roles)
                                                     {
                                                         <tr class="td-wrap">
                                                             <td>
