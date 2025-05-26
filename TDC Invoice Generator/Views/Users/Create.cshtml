@@ -1,0 +1,68 @@
+﻿@using TDC_Invoice_Generator.Helper
+@model TDC_Invoice_Generator.ViewModels.Users.CreateUserViewModel
+@{
+    ViewBag.Title = "Create New User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles {
+}
+<div class="row">
+    <div class="col-12 mt-3">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm("Create", "Users", FormMethod.Post, new { id = "CreateUserForm", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                        @Html.LabelFor(model => model.FirstName)
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                        @Html.LabelFor(model => model.LastName)
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                        @Html.LabelFor(model => model.Email)
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email Address" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                        @Html.LabelFor(model => model.PhoneNumber)
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone Number" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        @Html.LabelFor(model => model.BranchCode)
+                        @Html.DropDownList("BranchCode", (IEnumerable<SelectListItem>)Model.BranchCodes, "Select a Branch", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BranchCode, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                        @Html.LabelFor(model => model.Password)
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                        @Html.LabelFor(model => model.ConfirmPassword)
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-12 mt-4">
+                            <button type="submit" id="FormSubmit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Create User</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts {
+    @NoCacheScripts.Render("~/bundles/jqueryval")
+}
