@@ -25,13 +25,7 @@ jobs:
         run: nuget restore
 
       - name: Publish InvoiceGenerator.TDC
-        run: >
-          msbuild InvoiceGenerator.TDC/InvoiceGenerator.TDC.csproj
-          /p:Configuration=Release
-          /p:PublishProfile=FolderProfile
-          /t:Build;Publish
-          /p:WebPublishMethod=FileSystem
-          /verbosity:quiet
+        run: msbuild InvoiceGenerator.TDC/InvoiceGenerator.TDC.csproj /p:Configuration=Release /p:PublishProfile=FolderProfile /p:WebPublishMethod=FileSystem /t:Build;Publish /verbosity:minimal
           
 
       - name: Upload TDC artifact
@@ -41,13 +35,7 @@ jobs:
           path: published/tdc
 
       - name: Publish InvoiceGenerator.TS
-        run: >
-          msbuild InvoiceGenerator.TS/InvoiceGenerator.TS.csproj
-          /p:Configuration=Release
-          /p:PublishProfile=FolderProfile
-          /t:Build;Publish
-          /p:WebPublishMethod=FileSystem
-          /verbosity:quiet
+        run: msbuild InvoiceGenerator.TS/InvoiceGenerator.TS.csproj /p:Configuration=Release /p:PublishProfile=FolderProfile /p:WebPublishMethod=FileSystem /t:Build;Publish /verbosity:minimal
 
       - name: Upload TS artifact
         uses: actions/upload-artifact@v4
