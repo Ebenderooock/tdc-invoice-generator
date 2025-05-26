@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TDC_Invoice_Generator.ViewModels.Clients
+namespace InvoiceGenerator.Core.ViewModels.Clients
 {
     public class DeleteClientViewModel
     {

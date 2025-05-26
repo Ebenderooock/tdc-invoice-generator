@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace TDC_Invoice_Generator.Models
+namespace InvoiceGenerator.Core.Models
 {
     public class IndexViewModel
     {

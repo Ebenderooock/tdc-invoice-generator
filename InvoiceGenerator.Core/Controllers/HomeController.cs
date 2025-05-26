@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using TDC_Invoice_Generator.Models;
-using TDC_Invoice_Generator.ViewModels.Dashboards;
+using InvoiceGenerator.Core.Models;
+using InvoiceGenerator.Core.ViewModels.Dashboards;
 
-namespace TDC_Invoice_Generator.Controllers
+namespace InvoiceGenerator.Core.Controllers
 {
     [Authorize(Roles = "" + RoleName.Admin + ", " + RoleName.Invoicing + "")]
     public class HomeController : Controller

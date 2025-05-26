@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace TDC_Invoice_Generator.Models
+namespace InvoiceGenerator_Core.Models
 {
     public class Invoice
     {

@@ -8,12 +8,12 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using TDC_Invoice_Generator.Helper;
-using TDC_Invoice_Generator.Models;
-using TDC_Invoice_Generator.ViewModels.Invoices;
-using TDC_Invoice_Generator.ViewModels.Users;
+using InvoiceGenerator.Core.Helper;
+using InvoiceGenerator.Core.Models;
+using InvoiceGenerator.Core.ViewModels.Invoices;
+using InvoiceGenerator.Core.ViewModels.Users;
 
-namespace TDC_Invoice_Generator.Controllers
+namespace InvoiceGenerator.Core.Controllers
 {
     [Authorize(Roles = "" + RoleName.Admin + ", " + RoleName.Invoicing + "")]
     public class InvoicesController : Controller

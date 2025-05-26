@@ -8,10 +8,10 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using TDC_Invoice_Generator.Models;
-using TDC_Invoice_Generator.ViewModels.Users;
+using InvoiceGenerator_Core.Models;
+using InvoiceGenerator_Core.ViewModels.Users;
 
-namespace TDC_Invoice_Generator.Controllers
+namespace InvoiceGenerator_Core.Controllers
 {
     [Authorize(Roles = RoleName.Admin)]
     public class UsersController : Controller

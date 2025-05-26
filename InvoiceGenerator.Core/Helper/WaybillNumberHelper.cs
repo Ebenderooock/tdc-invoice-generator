@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using TDC_Invoice_Generator.Models;
+using InvoiceGenerator.Core.Models;
 
-namespace TDC_Invoice_Generator.Helper
+namespace InvoiceGenerator.Core.Helper
 {
     public class WaybillNumberHelper
     {

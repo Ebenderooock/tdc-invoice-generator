@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36109.1 d17.14
+VisualStudioVersion = 17.14.36109.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDC Invoice Generator", "TDC Invoice Generator\TDC Invoice Generator.csproj", "{D1AF9BED-DA1E-4D01-A161-AD6DF79C85E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceGenerator.Core", "InvoiceGenerator.Core\InvoiceGenerator.Core.csproj", "{D5ADC516-0ACB-4C6C-9563-181F05AE3207}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceGenerator.TDC", "InvoiceGenerator.TDC\InvoiceGenerator.TDC.csproj", "{1805C554-BFA8-44F3-8CC5-DBD7DFA86BCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceGenerator.TS", "InvoiceGenerator.TS\InvoiceGenerator.TS.csproj", "{5315EE99-80AC-44DD-B590-9D036624BFF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{D1AF9BED-DA1E-4D01-A161-AD6DF79C85E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1AF9BED-DA1E-4D01-A161-AD6DF79C85E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1AF9BED-DA1E-4D01-A161-AD6DF79C85E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5ADC516-0ACB-4C6C-9563-181F05AE3207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5ADC516-0ACB-4C6C-9563-181F05AE3207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5ADC516-0ACB-4C6C-9563-181F05AE3207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5ADC516-0ACB-4C6C-9563-181F05AE3207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1805C554-BFA8-44F3-8CC5-DBD7DFA86BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1805C554-BFA8-44F3-8CC5-DBD7DFA86BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1805C554-BFA8-44F3-8CC5-DBD7DFA86BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1805C554-BFA8-44F3-8CC5-DBD7DFA86BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5315EE99-80AC-44DD-B590-9D036624BFF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5315EE99-80AC-44DD-B590-9D036624BFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5315EE99-80AC-44DD-B590-9D036624BFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5315EE99-80AC-44DD-B590-9D036624BFF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

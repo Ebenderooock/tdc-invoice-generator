@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using TDC_Invoice_Generator.Models;
+using InvoiceGenerator_Core.Models;
 
-namespace TDC_Invoice_Generator.ViewModels.Invoices
+namespace InvoiceGenerator_Core.ViewModels.Invoices
 {
     public class IndexInvoiceViewModel
     {

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace TDC_Invoice_Generator
+namespace InvoiceGenerator.Core
 {
     public class FilterConfig
     {

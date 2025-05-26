@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace TDC_Invoice_Generator.ViewModels.Clients
+namespace InvoiceGenerator_Core.ViewModels.Clients
 {
     public class UploadClientViewModel
     {

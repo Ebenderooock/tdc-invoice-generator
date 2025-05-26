@@ -1,18 +1,18 @@
-﻿namespace TDC_Invoice_Generator.Migrations
+﻿namespace InvoiceGenerator_Core.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<TDC_Invoice_Generator.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<InvoiceGenerator_Core.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(TDC_Invoice_Generator.Models.ApplicationDbContext context)
+        protected override void Seed(InvoiceGenerator_Core.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

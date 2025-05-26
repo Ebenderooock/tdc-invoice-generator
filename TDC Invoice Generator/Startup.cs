@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(TDC_Invoice_Generator.Startup))]
-namespace TDC_Invoice_Generator
+[assembly: OwinStartupAttribute(typeof(InvoiceGenerator_Core.Startup))]
+namespace InvoiceGenerator_Core
 {
     public partial class Startup
     {

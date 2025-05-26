@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TDC_Invoice_Generator.Models
+namespace InvoiceGenerator.Core.Models
 {
     public class ProductBranch
     {

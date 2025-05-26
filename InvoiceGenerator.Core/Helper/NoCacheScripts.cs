@@ -5,7 +5,7 @@ using System;
 using System.Web;
 using System.Web.Optimization;
 
-namespace TDC_Invoice_Generator.Helper
+namespace InvoiceGenerator.Core.Helper
 {
     public static class NoCacheScripts
     {

@@ -7,12 +7,12 @@ using System.Net;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using OfficeOpenXml;
-using TDC_Invoice_Generator.Helper;
-using TDC_Invoice_Generator.Models;
-using TDC_Invoice_Generator.ViewModels.Products;
-using TDC_Invoice_Generator.ViewModels.Users;
+using InvoiceGenerator.Core.Helper;
+using InvoiceGenerator.Core.Models;
+using InvoiceGenerator.Core.ViewModels.Products;
+using InvoiceGenerator.Core.ViewModels.Users;
 
-namespace TDC_Invoice_Generator.Controllers
+namespace InvoiceGenerator.Core.Controllers
 {
     [Authorize(Roles = RoleName.Admin)]
     public class ProductsController : Controller

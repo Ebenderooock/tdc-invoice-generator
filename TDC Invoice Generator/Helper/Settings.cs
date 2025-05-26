@@ -3,7 +3,7 @@
 
 using System.Configuration;
 
-namespace TDC_Invoice_Generator.Helper
+namespace InvoiceGenerator_Core.Helper
 {
     public static class Settings
     {

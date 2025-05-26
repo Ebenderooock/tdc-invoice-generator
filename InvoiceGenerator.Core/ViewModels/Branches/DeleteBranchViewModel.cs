@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TDC_Invoice_Generator.ViewModels.Branches
+namespace InvoiceGenerator.Core.ViewModels.Branches
 {
     public class DeleteBranchViewModel
     {

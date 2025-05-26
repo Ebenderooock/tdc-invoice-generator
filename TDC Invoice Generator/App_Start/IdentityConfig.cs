@@ -7,9 +7,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataProtection;
-using TDC_Invoice_Generator.Models;
+using InvoiceGenerator_Core.Models;
 
-namespace TDC_Invoice_Generator
+namespace InvoiceGenerator_Core
 {
     public class EmailService : IIdentityMessageService
     {

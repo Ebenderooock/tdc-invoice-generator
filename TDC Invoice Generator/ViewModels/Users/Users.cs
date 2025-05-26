@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace TDC_Invoice_Generator.ViewModels.Users
+namespace InvoiceGenerator_Core.ViewModels.Users
 {
     [Table("AspNetUsers")]
     public class Users

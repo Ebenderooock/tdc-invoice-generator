@@ -4,9 +4,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using TDC_Invoice_Generator.Models;
+using InvoiceGenerator.Core.Models;
 
-namespace TDC_Invoice_Generator.Controllers
+namespace InvoiceGenerator.Core.Controllers
 {
     [Authorize]
     public class AccountController : Controller

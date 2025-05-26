@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using TDC_Invoice_Generator.Helper;
-using TDC_Invoice_Generator.Models;
-using TDC_Invoice_Generator.ViewModels.Settings;
+using InvoiceGenerator.Core.Helper;
+using InvoiceGenerator.Core.Models;
+using InvoiceGenerator.Core.ViewModels.Settings;
 
-namespace TDC_Invoice_Generator.Controllers
+namespace InvoiceGenerator.Core.Controllers
 {
     [Authorize(Roles = RoleName.Admin)]
     public class SettingsController : Controller

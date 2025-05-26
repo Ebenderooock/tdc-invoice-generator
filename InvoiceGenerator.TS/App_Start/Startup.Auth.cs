@@ -7,7 +7,7 @@ using Owin;
 using InvoiceGenerator.Core.Models;
 using InvoiceGenerator.Core;
 
-namespace InvoiceGenerator.TDC
+namespace InvoiceGenerator.TS
 {
     public partial class Startup
     {

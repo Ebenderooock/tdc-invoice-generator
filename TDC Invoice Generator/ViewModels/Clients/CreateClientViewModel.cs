@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TDC_Invoice_Generator.ViewModels.Clients
+namespace InvoiceGenerator_Core.ViewModels.Clients
 {
     public class CreateClientViewModel
     {

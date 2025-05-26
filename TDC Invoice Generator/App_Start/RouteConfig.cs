@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace TDC_Invoice_Generator
+namespace InvoiceGenerator_Core
 {
     public class RouteConfig
     {

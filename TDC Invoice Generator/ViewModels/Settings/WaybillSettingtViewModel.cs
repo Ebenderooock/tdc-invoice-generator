@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TDC_Invoice_Generator.ViewModels.Settings
+namespace InvoiceGenerator_Core.ViewModels.Settings
 {
     public class WaybillSettingtViewModel
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Xml.Linq;
 
-namespace TDC_Invoice_Generator.Models
+namespace InvoiceGenerator_Core.Models
 {
     public class Setting
     {

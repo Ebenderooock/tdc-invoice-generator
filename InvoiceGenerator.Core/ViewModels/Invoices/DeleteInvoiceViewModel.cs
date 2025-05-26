@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TDC_Invoice_Generator.Models;
+using InvoiceGenerator.Core.Models;
 
-namespace TDC_Invoice_Generator.ViewModels.Invoices
+namespace InvoiceGenerator.Core.ViewModels.Invoices
 {
     public class DeleteInvoiceViewModel
     {

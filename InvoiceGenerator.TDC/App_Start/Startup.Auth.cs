@@ -3,11 +3,11 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
 using InvoiceGenerator.Core.Models;
+using InvoiceGenerator.Core;
 
-namespace InvoiceGenerator.Core
+namespace InvoiceGenerator.TDC
 {
     public partial class Startup
     {

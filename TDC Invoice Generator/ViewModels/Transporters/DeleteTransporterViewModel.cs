@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TDC_Invoice_Generator.ViewModels.Transporters
+namespace InvoiceGenerator_Core.ViewModels.Transporters
 {
     public class DeleteTransporterViewModel
     {

@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using TDC_Invoice_Generator.Models;
+using InvoiceGenerator.Core.Models;
 
-namespace TDC_Invoice_Generator
+namespace InvoiceGenerator.Core
 {
     public partial class Startup
     {

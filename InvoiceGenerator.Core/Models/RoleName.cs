@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TDC_Invoice_Generator.Models
+namespace InvoiceGenerator.Core.Models
 {
     public static class RoleName
     {

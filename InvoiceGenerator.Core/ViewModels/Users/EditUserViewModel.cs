@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TDC_Invoice_Generator.ViewModels.Users
+namespace InvoiceGenerator.Core.ViewModels.Users
 {
     public class EditUserViewModel
     {

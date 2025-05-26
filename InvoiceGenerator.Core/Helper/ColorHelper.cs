@@ -5,7 +5,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace TDC_Invoice_Generator.Helper
+namespace InvoiceGenerator.Core.Helper
 {
     public static class ColorHelper
     {

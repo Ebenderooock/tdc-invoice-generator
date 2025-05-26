@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TDC_Invoice_Generator.Models
+namespace InvoiceGenerator_Core.Models
 {
     public class Client
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
 using System.Net;
-using TDC_Invoice_Generator.Models;
-using TDC_Invoice_Generator.ViewModels.Transporters;
+using InvoiceGenerator.Core.Models;
+using InvoiceGenerator.Core.ViewModels.Transporters;
 
-namespace TDC_Invoice_Generator.Controllers
+namespace InvoiceGenerator.Core.Controllers
 {
     [Authorize(Roles = RoleName.Admin)]
     public class TransportersController : Controller

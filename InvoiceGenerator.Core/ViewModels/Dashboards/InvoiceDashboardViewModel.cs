@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TDC_Invoice_Generator.ViewModels.Dashboards
+namespace InvoiceGenerator.Core.ViewModels.Dashboards
 {
     public class InvoiceDashboardViewModel
     {

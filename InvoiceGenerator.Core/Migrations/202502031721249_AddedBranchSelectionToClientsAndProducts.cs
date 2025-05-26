@@ -1,4 +1,4 @@
-﻿namespace TDC_Invoice_Generator.Migrations
+﻿namespace InvoiceGenerator.Core.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

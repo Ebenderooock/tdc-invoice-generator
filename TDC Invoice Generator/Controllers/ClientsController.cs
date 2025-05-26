@@ -6,10 +6,10 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using TDC_Invoice_Generator.Models;
-using TDC_Invoice_Generator.ViewModels.Clients;
+using InvoiceGenerator_Core.Models;
+using InvoiceGenerator_Core.ViewModels.Clients;
 
-namespace TDC_Invoice_Generator.Controllers
+namespace InvoiceGenerator_Core.Controllers
 {
     [Authorize(Roles = RoleName.Admin)]
     public class ClientsController : Controller

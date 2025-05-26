@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using TDC_Invoice_Generator.Models;
-using TDC_Invoice_Generator.ViewModels.Branches;
+using InvoiceGenerator.Core.Models;
+using InvoiceGenerator.Core.ViewModels.Branches;
 
-namespace TDC_Invoice_Generator.Controllers
+namespace InvoiceGenerator.Core.Controllers
 {
     [Authorize(Roles = RoleName.Admin)]
     public class BranchesController : Controller
