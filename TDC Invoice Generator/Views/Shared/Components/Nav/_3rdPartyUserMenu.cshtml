@@ -1,9 +1,0 @@
-﻿<ul id="side-menu" class="sidebar-menu">
-    <li class="dropdown">
-        <a href="#"><i class="fas fa-file-invoice-dollar mr-1"></i> Invoices</a>
-        <ul>
-            <li class="@(ViewContext.RouteData.Values["controller"].ToString() == "Invoices" && ViewContext.RouteData.Values["Action"].ToString() == "Index"  ? "active" : "")"><a href="@Url.Action("Index", "Invoices")"><i class="fas fa-list"></i> View All Invoices</a></li>
-            <li class="@(ViewContext.RouteData.Values["controller"].ToString() == "Invoices" && ViewContext.RouteData.Values["Action"].ToString() == "Create"  ? "active" : "")"><a href="@Url.Action("Create", "Invoices")"><i class="fas fa-plus-square"></i> Create New Invoice</a></li>
-        </ul>
-    </li>
-</ul>

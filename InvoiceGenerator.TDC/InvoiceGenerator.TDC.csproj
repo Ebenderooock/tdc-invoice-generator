@@ -151,25 +151,109 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.css.map">
+      <DependentUpon>bootstrap-grid.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-grid.min.css">
+      <DependentUpon>bootstrap-grid.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-grid.min.css.map">
+      <DependentUpon>bootstrap-grid.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.rtl.css" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map">
+      <DependentUpon>bootstrap-grid.rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-grid.rtl.min.css">
+      <DependentUpon>bootstrap-grid.rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map">
+      <DependentUpon>bootstrap-grid.rtl.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.css.map">
+      <DependentUpon>bootstrap-reboot.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-reboot.min.css">
+      <DependentUpon>bootstrap-reboot.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-reboot.min.css.map">
+      <DependentUpon>bootstrap-reboot.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-reboot.rtl.css" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map">
+      <DependentUpon>bootstrap-reboot.rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-reboot.rtl.min.css">
+      <DependentUpon>bootstrap-reboot.rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map">
+      <DependentUpon>bootstrap-reboot.rtl.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-utilities.css" />
-    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.css.map">
+      <DependentUpon>bootstrap-utilities.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-utilities.min.css">
+      <DependentUpon>bootstrap-utilities.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-utilities.min.css.map">
+      <DependentUpon>bootstrap-utilities.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-utilities.rtl.css" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map">
+      <DependentUpon>bootstrap-utilities.rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-utilities.rtl.min.css">
+      <DependentUpon>bootstrap-utilities.rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map">
+      <DependentUpon>bootstrap-utilities.rtl.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.min.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.rtl.css" />
-    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\bootstrap.rtl.css.map">
+      <DependentUpon>bootstrap.rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.rtl.min.css">
+      <DependentUpon>bootstrap.rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.rtl.min.css.map">
+      <DependentUpon>bootstrap.rtl.css</DependentUpon>
+    </Content>
     <Content Include="Content\Main.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Helper\ExcelTemplates\SublimeTastes\invoice-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Helper\ExcelTemplates\SublimeTastes\monthly-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Helper\ExcelTemplates\TDC\invoice-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Helper\ExcelTemplates\TDC\monthly-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Helper\ExcelTemplates\TrueSouth\invoice-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Helper\ExcelTemplates\TrueSouth\monthly-template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\tdc-prod-wa-web01 - Web Deploy.pubxml" />
     <Content Include="Images\author.jpg" />
     <Content Include="Images\patterns.png" />
     <Content Include="Images\SublimeTastes\SublimeTastes.png" />
@@ -179,101 +263,236 @@
     <Content Include="Images\TDC\tdc-logo-center.png" />
     <Content Include="Images\TDC\tdc-logo.png" />
     <Content Include="Images\TrueSouth\TrueSouth.png" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js.map">
+      <DependentUpon>bootstrap.bundle.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.min.js">
+      <DependentUpon>bootstrap.bundle.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.min.js.map">
+      <DependentUpon>bootstrap.bundle.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.esm.js" />
-    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js.map">
+      <DependentUpon>bootstrap.esm.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.esm.min.js">
+      <DependentUpon>bootstrap.esm.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.esm.min.js.map">
+      <DependentUpon>bootstrap.esm.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.esm.min.js.map" />
-    <Content Include="Scripts\bootstrap.esm.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Content\bootstrap.rtl.min.css.map" />
-    <Content Include="Content\bootstrap.rtl.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
-    <Content Include="Content\bootstrap-utilities.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
-    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js.map">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.min.js">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.min.js.map">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery-3.7.1.js" />
-    <Content Include="Scripts\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.min.js">
+      <DependentUpon>jquery-3.7.1.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-3.7.1.min.map">
+      <DependentUpon>jquery-3.7.1.min.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
-    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.js">
+      <DependentUpon>jquery-3.7.1.slim.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-3.7.1.slim.min.map">
+      <DependentUpon>jquery-3.7.1.slim.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js">
+      <DependentUpon>jquery.validate.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js">
+      <DependentUpon>jquery.validate.unobtrusive.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Pages\Branches\Delete.js" />
+    <Content Include="Scripts\Pages\Branches\Edit.js" />
+    <Content Include="Scripts\Pages\Branches\Index.js" />
+    <Content Include="Scripts\Pages\Clients\Delete.js" />
+    <Content Include="Scripts\Pages\Clients\Edit.js" />
+    <Content Include="Scripts\Pages\Clients\Index.js" />
+    <Content Include="Scripts\Pages\Clients\Upload.js" />
+    <Content Include="Scripts\Pages\Dashboard\Invoices\Dashboard.js" />
+    <Content Include="Scripts\Pages\Invoices\Create.js" />
+    <Content Include="Scripts\Pages\Invoices\Delete.js" />
+    <Content Include="Scripts\Pages\Invoices\Details.js" />
+    <Content Include="Scripts\Pages\Invoices\Edit.js" />
+    <Content Include="Scripts\Pages\Invoices\Index.js" />
+    <Content Include="Scripts\Pages\Products\Delete.js" />
+    <Content Include="Scripts\Pages\Products\Edit.js" />
+    <Content Include="Scripts\Pages\Products\Index.js" />
+    <Content Include="Scripts\Pages\Products\Upload.js" />
+    <Content Include="Scripts\Pages\Transporters\Delete.js" />
+    <Content Include="Scripts\Pages\Transporters\Edit.js" />
+    <Content Include="Scripts\Pages\Transporters\Index.js" />
+    <Content Include="Scripts\Pages\Users\Delete.js" />
+    <Content Include="Scripts\Pages\Users\Edit.js" />
+    <Content Include="Scripts\Pages\Users\Index.js" />
     <Content Include="Vendor\apexcharts\js\apexcharts.min.js" />
     <Content Include="Vendor\bootstrap4-toggle\css\bootstrap4-toggle.css" />
-    <Content Include="Vendor\bootstrap4-toggle\css\bootstrap4-toggle.min.css" />
+    <Content Include="Vendor\bootstrap4-toggle\css\bootstrap4-toggle.min.css">
+      <DependentUpon>bootstrap4-toggle.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\bootstrap4-toggle\js\bootstrap4-toggle.js" />
-    <Content Include="Vendor\bootstrap4-toggle\js\bootstrap4-toggle.min.js" />
+    <Content Include="Vendor\bootstrap4-toggle\js\bootstrap4-toggle.min.js">
+      <DependentUpon>bootstrap4-toggle.js</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap4-toggle\js\bootstrap4-toggle.min.js.map">
+      <DependentUpon>bootstrap4-toggle.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\bootstrap\css\bootstrap-grid.css" />
-    <Content Include="Vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Vendor\bootstrap\css\bootstrap-grid.css.map">
+      <DependentUpon>bootstrap-grid.css</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap\css\bootstrap-grid.min.css">
+      <DependentUpon>bootstrap-grid.css</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap\css\bootstrap-grid.min.css.map">
+      <DependentUpon>bootstrap-grid.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\bootstrap\css\bootstrap-reboot.css" />
-    <Content Include="Vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Vendor\bootstrap\css\bootstrap-reboot.css.map">
+      <DependentUpon>bootstrap-reboot.css</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap\css\bootstrap-reboot.min.css">
+      <DependentUpon>bootstrap-reboot.css</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap\css\bootstrap-reboot.min.css.map">
+      <DependentUpon>bootstrap-reboot.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\bootstrap\css\bootstrap.css" />
-    <Content Include="Vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Vendor\bootstrap\css\bootstrap.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap\css\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap\css\bootstrap.min.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\bootstrap\js\bootstrap.bundle.js" />
-    <Content Include="Vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Vendor\bootstrap\js\bootstrap.bundle.js.map">
+      <DependentUpon>bootstrap.bundle.js</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap\js\bootstrap.bundle.min.js">
+      <DependentUpon>bootstrap.bundle.js</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap\js\bootstrap.bundle.min.js.map">
+      <DependentUpon>bootstrap.bundle.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\bootstrap\js\bootstrap.js" />
-    <Content Include="Vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Vendor\bootstrap\js\bootstrap.js.map">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap\js\bootstrap.min.js">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Vendor\bootstrap\js\bootstrap.min.js.map">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\css\buttons.bootstrap.css" />
-    <Content Include="Vendor\datatable\buttons\css\buttons.bootstrap.min.css" />
+    <Content Include="Vendor\datatable\buttons\css\buttons.bootstrap.min.css">
+      <DependentUpon>buttons.bootstrap.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\css\buttons.bootstrap4.css" />
-    <Content Include="Vendor\datatable\buttons\css\buttons.bootstrap4.min.css" />
+    <Content Include="Vendor\datatable\buttons\css\buttons.bootstrap4.min.css">
+      <DependentUpon>buttons.bootstrap4.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\css\buttons.dataTables.css" />
-    <Content Include="Vendor\datatable\buttons\css\buttons.dataTables.min.css" />
+    <Content Include="Vendor\datatable\buttons\css\buttons.dataTables.min.css">
+      <DependentUpon>buttons.dataTables.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\css\buttons.foundation.css" />
-    <Content Include="Vendor\datatable\buttons\css\buttons.foundation.min.css" />
+    <Content Include="Vendor\datatable\buttons\css\buttons.foundation.min.css">
+      <DependentUpon>buttons.foundation.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\css\buttons.jqueryui.css" />
-    <Content Include="Vendor\datatable\buttons\css\buttons.jqueryui.min.css" />
+    <Content Include="Vendor\datatable\buttons\css\buttons.jqueryui.min.css">
+      <DependentUpon>buttons.jqueryui.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\css\buttons.semanticui.css" />
-    <Content Include="Vendor\datatable\buttons\css\buttons.semanticui.min.css" />
+    <Content Include="Vendor\datatable\buttons\css\buttons.semanticui.min.css">
+      <DependentUpon>buttons.semanticui.css</DependentUpon>
+    </Content>
+    <Content Include="Vendor\datatable\buttons\css\common.scss" />
+    <Content Include="Vendor\datatable\buttons\css\mixins.scss" />
     <Content Include="Vendor\datatable\buttons\js\buttons.bootstrap.js" />
-    <Content Include="Vendor\datatable\buttons\js\buttons.bootstrap.min.js" />
+    <Content Include="Vendor\datatable\buttons\js\buttons.bootstrap.min.js">
+      <DependentUpon>buttons.bootstrap.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\js\buttons.bootstrap4.js" />
-    <Content Include="Vendor\datatable\buttons\js\buttons.bootstrap4.min.js" />
+    <Content Include="Vendor\datatable\buttons\js\buttons.bootstrap4.min.js">
+      <DependentUpon>buttons.bootstrap4.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\js\buttons.colVis.js" />
-    <Content Include="Vendor\datatable\buttons\js\buttons.colVis.min.js" />
+    <Content Include="Vendor\datatable\buttons\js\buttons.colVis.min.js">
+      <DependentUpon>buttons.colVis.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\js\buttons.flash.js" />
-    <Content Include="Vendor\datatable\buttons\js\buttons.flash.min.js" />
+    <Content Include="Vendor\datatable\buttons\js\buttons.flash.min.js">
+      <DependentUpon>buttons.flash.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\js\buttons.foundation.js" />
-    <Content Include="Vendor\datatable\buttons\js\buttons.foundation.min.js" />
+    <Content Include="Vendor\datatable\buttons\js\buttons.foundation.min.js">
+      <DependentUpon>buttons.foundation.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\js\buttons.html5.js" />
-    <Content Include="Vendor\datatable\buttons\js\buttons.html5.min.js" />
+    <Content Include="Vendor\datatable\buttons\js\buttons.html5.min.js">
+      <DependentUpon>buttons.html5.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\js\buttons.jqueryui.js" />
-    <Content Include="Vendor\datatable\buttons\js\buttons.jqueryui.min.js" />
+    <Content Include="Vendor\datatable\buttons\js\buttons.jqueryui.min.js">
+      <DependentUpon>buttons.jqueryui.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\js\buttons.print.js" />
-    <Content Include="Vendor\datatable\buttons\js\buttons.print.min.js" />
+    <Content Include="Vendor\datatable\buttons\js\buttons.print.min.js">
+      <DependentUpon>buttons.print.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\js\buttons.semanticui.js" />
-    <Content Include="Vendor\datatable\buttons\js\buttons.semanticui.min.js" />
+    <Content Include="Vendor\datatable\buttons\js\buttons.semanticui.min.js">
+      <DependentUpon>buttons.semanticui.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\js\dataTables.buttons.js" />
-    <Content Include="Vendor\datatable\buttons\js\dataTables.buttons.min.js" />
+    <Content Include="Vendor\datatable\buttons\js\dataTables.buttons.min.js">
+      <DependentUpon>dataTables.buttons.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\buttons\swf\flashExport.swf" />
     <Content Include="Vendor\datatable\css\dataTables.bootstrap.css" />
-    <Content Include="Vendor\datatable\css\dataTables.bootstrap.min.css" />
+    <Content Include="Vendor\datatable\css\dataTables.bootstrap.min.css">
+      <DependentUpon>dataTables.bootstrap.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\css\dataTables.bootstrap4.css" />
-    <Content Include="Vendor\datatable\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Vendor\datatable\css\dataTables.bootstrap4.min.css">
+      <DependentUpon>dataTables.bootstrap4.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\css\dataTables.foundation.css" />
-    <Content Include="Vendor\datatable\css\dataTables.foundation.min.css" />
+    <Content Include="Vendor\datatable\css\dataTables.foundation.min.css">
+      <DependentUpon>dataTables.foundation.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\css\dataTables.jqueryui.css" />
-    <Content Include="Vendor\datatable\css\dataTables.jqueryui.min.css" />
+    <Content Include="Vendor\datatable\css\dataTables.jqueryui.min.css">
+      <DependentUpon>dataTables.jqueryui.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\css\dataTables.semanticui.css" />
-    <Content Include="Vendor\datatable\css\dataTables.semanticui.min.css" />
+    <Content Include="Vendor\datatable\css\dataTables.semanticui.min.css">
+      <DependentUpon>dataTables.semanticui.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\css\jquery.dataTables.css" />
-    <Content Include="Vendor\datatable\css\jquery.dataTables.min.css" />
+    <Content Include="Vendor\datatable\css\jquery.dataTables.min.css">
+      <DependentUpon>jquery.dataTables.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\editor\mindmup-editabletable.js" />
     <Content Include="Vendor\datatable\editor\numeric-input-example.js" />
     <Content Include="Vendor\datatable\images\sort_asc.png" />
@@ -282,55 +501,141 @@
     <Content Include="Vendor\datatable\images\sort_desc.png" />
     <Content Include="Vendor\datatable\images\sort_desc_disabled.png" />
     <Content Include="Vendor\datatable\jszip\jszip.js" />
-    <Content Include="Vendor\datatable\jszip\jszip.min.js" />
+    <Content Include="Vendor\datatable\jszip\jszip.min.js">
+      <DependentUpon>jszip.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\js\dataTables.bootstrap.js" />
-    <Content Include="Vendor\datatable\js\dataTables.bootstrap.min.js" />
+    <Content Include="Vendor\datatable\js\dataTables.bootstrap.min.js">
+      <DependentUpon>dataTables.bootstrap.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\js\dataTables.bootstrap4.js" />
-    <Content Include="Vendor\datatable\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Vendor\datatable\js\dataTables.bootstrap4.min.js">
+      <DependentUpon>dataTables.bootstrap4.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\js\dataTables.foundation.js" />
-    <Content Include="Vendor\datatable\js\dataTables.foundation.min.js" />
+    <Content Include="Vendor\datatable\js\dataTables.foundation.min.js">
+      <DependentUpon>dataTables.foundation.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\js\dataTables.jqueryui.js" />
-    <Content Include="Vendor\datatable\js\dataTables.jqueryui.min.js" />
+    <Content Include="Vendor\datatable\js\dataTables.jqueryui.min.js">
+      <DependentUpon>dataTables.jqueryui.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\js\dataTables.semanticui.js" />
-    <Content Include="Vendor\datatable\js\dataTables.semanticui.min.js" />
+    <Content Include="Vendor\datatable\js\dataTables.semanticui.min.js">
+      <DependentUpon>dataTables.semanticui.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\js\datetime-moment.js" />
     <Content Include="Vendor\datatable\js\jquery.dataTables.js" />
-    <Content Include="Vendor\datatable\js\jquery.dataTables.min.js" />
+    <Content Include="Vendor\datatable\js\jquery.dataTables.min.js">
+      <DependentUpon>jquery.dataTables.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\pdfmake\pdfmake.js" />
-    <Content Include="Vendor\datatable\pdfmake\pdfmake.min.js" />
+    <Content Include="Vendor\datatable\pdfmake\pdfmake.min.js">
+      <DependentUpon>pdfmake.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\datatable\pdfmake\vfs_fonts.js" />
     <Content Include="Vendor\flatpickr\css\flatpickr.min.css" />
     <Content Include="Vendor\flatpickr\js\flatpickr.js" />
     <Content Include="Vendor\fontawesome\attribution.js" />
     <Content Include="Vendor\fontawesome\css\all.css" />
-    <Content Include="Vendor\fontawesome\css\all.min.css" />
+    <Content Include="Vendor\fontawesome\css\all.min.css">
+      <DependentUpon>all.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\css\brands.css" />
-    <Content Include="Vendor\fontawesome\css\brands.min.css" />
+    <Content Include="Vendor\fontawesome\css\brands.min.css">
+      <DependentUpon>brands.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\css\fontawesome.css" />
-    <Content Include="Vendor\fontawesome\css\fontawesome.min.css" />
+    <Content Include="Vendor\fontawesome\css\fontawesome.min.css">
+      <DependentUpon>fontawesome.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\css\regular.css" />
-    <Content Include="Vendor\fontawesome\css\regular.min.css" />
+    <Content Include="Vendor\fontawesome\css\regular.min.css">
+      <DependentUpon>regular.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\css\solid.css" />
-    <Content Include="Vendor\fontawesome\css\solid.min.css" />
+    <Content Include="Vendor\fontawesome\css\solid.min.css">
+      <DependentUpon>solid.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\css\svg-with-js.css" />
-    <Content Include="Vendor\fontawesome\css\svg-with-js.min.css" />
+    <Content Include="Vendor\fontawesome\css\svg-with-js.min.css">
+      <DependentUpon>svg-with-js.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\css\v4-shims.css" />
-    <Content Include="Vendor\fontawesome\css\v4-shims.min.css" />
+    <Content Include="Vendor\fontawesome\css\v4-shims.min.css">
+      <DependentUpon>v4-shims.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\js\all.js" />
-    <Content Include="Vendor\fontawesome\js\all.min.js" />
+    <Content Include="Vendor\fontawesome\js\all.min.js">
+      <DependentUpon>all.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\js\brands.js" />
-    <Content Include="Vendor\fontawesome\js\brands.min.js" />
+    <Content Include="Vendor\fontawesome\js\brands.min.js">
+      <DependentUpon>brands.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\js\conflict-detection.js" />
-    <Content Include="Vendor\fontawesome\js\conflict-detection.min.js" />
+    <Content Include="Vendor\fontawesome\js\conflict-detection.min.js">
+      <DependentUpon>conflict-detection.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\js\fontawesome.js" />
-    <Content Include="Vendor\fontawesome\js\fontawesome.min.js" />
+    <Content Include="Vendor\fontawesome\js\fontawesome.min.js">
+      <DependentUpon>fontawesome.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\js\regular.js" />
-    <Content Include="Vendor\fontawesome\js\regular.min.js" />
+    <Content Include="Vendor\fontawesome\js\regular.min.js">
+      <DependentUpon>regular.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\js\solid.js" />
-    <Content Include="Vendor\fontawesome\js\solid.min.js" />
+    <Content Include="Vendor\fontawesome\js\solid.min.js">
+      <DependentUpon>solid.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\fontawesome\js\v4-shims.js" />
-    <Content Include="Vendor\fontawesome\js\v4-shims.min.js" />
+    <Content Include="Vendor\fontawesome\js\v4-shims.min.js">
+      <DependentUpon>v4-shims.js</DependentUpon>
+    </Content>
+    <Content Include="Vendor\fontawesome\less\brands.less" />
+    <Content Include="Vendor\fontawesome\less\fontawesome.less" />
+    <Content Include="Vendor\fontawesome\less\regular.less" />
+    <Content Include="Vendor\fontawesome\less\solid.less" />
+    <Content Include="Vendor\fontawesome\less\v4-shims.less" />
+    <Content Include="Vendor\fontawesome\less\_animated.less" />
+    <Content Include="Vendor\fontawesome\less\_bordered-pulled.less" />
+    <Content Include="Vendor\fontawesome\less\_core.less" />
+    <Content Include="Vendor\fontawesome\less\_fixed-width.less" />
+    <Content Include="Vendor\fontawesome\less\_icons.less" />
+    <Content Include="Vendor\fontawesome\less\_larger.less" />
+    <Content Include="Vendor\fontawesome\less\_list.less" />
+    <Content Include="Vendor\fontawesome\less\_mixins.less" />
+    <Content Include="Vendor\fontawesome\less\_rotated-flipped.less" />
+    <Content Include="Vendor\fontawesome\less\_screen-reader.less" />
+    <Content Include="Vendor\fontawesome\less\_shims.less" />
+    <Content Include="Vendor\fontawesome\less\_stacked.less" />
+    <Content Include="Vendor\fontawesome\less\_variables.less" />
     <Content Include="Vendor\fontawesome\LICENSE.txt" />
+    <Content Include="Vendor\fontawesome\metadata\categories.yml" />
+    <Content Include="Vendor\fontawesome\metadata\icons.json" />
+    <Content Include="Vendor\fontawesome\metadata\icons.yml" />
+    <Content Include="Vendor\fontawesome\metadata\shims.json" />
+    <Content Include="Vendor\fontawesome\metadata\shims.yml" />
+    <Content Include="Vendor\fontawesome\metadata\sponsors.yml" />
+    <Content Include="Vendor\fontawesome\scss\brands.scss" />
+    <Content Include="Vendor\fontawesome\scss\fontawesome.scss" />
+    <Content Include="Vendor\fontawesome\scss\regular.scss" />
+    <Content Include="Vendor\fontawesome\scss\solid.scss" />
+    <Content Include="Vendor\fontawesome\scss\v4-shims.scss" />
+    <Content Include="Vendor\fontawesome\scss\_animated.scss" />
+    <Content Include="Vendor\fontawesome\scss\_bordered-pulled.scss" />
+    <Content Include="Vendor\fontawesome\scss\_core.scss" />
+    <Content Include="Vendor\fontawesome\scss\_fixed-width.scss" />
+    <Content Include="Vendor\fontawesome\scss\_icons.scss" />
+    <Content Include="Vendor\fontawesome\scss\_larger.scss" />
+    <Content Include="Vendor\fontawesome\scss\_list.scss" />
+    <Content Include="Vendor\fontawesome\scss\_mixins.scss" />
+    <Content Include="Vendor\fontawesome\scss\_rotated-flipped.scss" />
+    <Content Include="Vendor\fontawesome\scss\_screen-reader.scss" />
+    <Content Include="Vendor\fontawesome\scss\_shims.scss" />
+    <Content Include="Vendor\fontawesome\scss\_stacked.scss" />
+    <Content Include="Vendor\fontawesome\scss\_variables.scss" />
     <Content Include="Vendor\fontawesome\sprites\brands.svg" />
     <Content Include="Vendor\fontawesome\sprites\regular.svg" />
     <Content Include="Vendor\fontawesome\sprites\solid.svg" />
@@ -1946,9 +2251,21 @@
     <Content Include="Vendor\fontawesome\svgs\solid\x-ray.svg" />
     <Content Include="Vendor\fontawesome\svgs\solid\yen-sign.svg" />
     <Content Include="Vendor\fontawesome\svgs\solid\yin-yang.svg" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-brands-400.eot" />
     <Content Include="Vendor\fontawesome\webfonts\fa-brands-400.svg" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-brands-400.woff" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-regular-400.eot" />
     <Content Include="Vendor\fontawesome\webfonts\fa-regular-400.svg" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-regular-400.woff" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-solid-900.eot" />
     <Content Include="Vendor\fontawesome\webfonts\fa-solid-900.svg" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-solid-900.woff" />
+    <Content Include="Vendor\fontawesome\webfonts\fa-solid-900.woff2" />
     <Content Include="Vendor\jquery-ui\external\jquery\jquery.js" />
     <Content Include="Vendor\jquery-ui\images\ui-icons_444444_256x240.png" />
     <Content Include="Vendor\jquery-ui\images\ui-icons_555555_256x240.png" />
@@ -1958,20 +2275,32 @@
     <Content Include="Vendor\jquery-ui\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Vendor\jquery-ui\jquery-ui.css" />
     <Content Include="Vendor\jquery-ui\jquery-ui.js" />
-    <Content Include="Vendor\jquery-ui\jquery-ui.min.css" />
-    <Content Include="Vendor\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Vendor\jquery-ui\jquery-ui.min.css">
+      <DependentUpon>jquery-ui.css</DependentUpon>
+    </Content>
+    <Content Include="Vendor\jquery-ui\jquery-ui.min.js">
+      <DependentUpon>jquery-ui.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\jquery-ui\jquery-ui.structure.css" />
-    <Content Include="Vendor\jquery-ui\jquery-ui.structure.min.css" />
+    <Content Include="Vendor\jquery-ui\jquery-ui.structure.min.css">
+      <DependentUpon>jquery-ui.structure.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\jquery-ui\jquery-ui.theme.css" />
-    <Content Include="Vendor\jquery-ui\jquery-ui.theme.min.css" />
+    <Content Include="Vendor\jquery-ui\jquery-ui.theme.min.css">
+      <DependentUpon>jquery-ui.theme.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\jquery\jquery-3.3.1.min.js" />
     <Content Include="Vendor\moment\moment.js" />
     <Content Include="Vendor\search-highlight\datatables-search-highlight\js\dataTables.searchHighlight.min.js" />
     <Content Include="Vendor\search-highlight\jquery-highlight\js\jquery.highlight.js" />
     <Content Include="Vendor\select2\css\select2-bootstrap.css" />
-    <Content Include="Vendor\select2\css\select2-bootstrap.min.css" />
+    <Content Include="Vendor\select2\css\select2-bootstrap.min.css">
+      <DependentUpon>select2-bootstrap.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\select2\css\select2.css" />
-    <Content Include="Vendor\select2\css\select2.min.css" />
+    <Content Include="Vendor\select2\css\select2.min.css">
+      <DependentUpon>select2.css</DependentUpon>
+    </Content>
     <Content Include="Vendor\select2\js\i18n\af.js" />
     <Content Include="Vendor\select2\js\i18n\ar.js" />
     <Content Include="Vendor\select2\js\i18n\az.js" />
@@ -2032,23 +2361,23 @@
     <Content Include="Vendor\select2\js\i18n\zh-CN.js" />
     <Content Include="Vendor\select2\js\i18n\zh-TW.js" />
     <Content Include="Vendor\select2\js\select2.full.js" />
-    <Content Include="Vendor\select2\js\select2.full.min.js" />
+    <Content Include="Vendor\select2\js\select2.full.min.js">
+      <DependentUpon>select2.full.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\select2\js\select2.js" />
-    <Content Include="Vendor\select2\js\select2.min.js" />
+    <Content Include="Vendor\select2\js\select2.min.js">
+      <DependentUpon>select2.js</DependentUpon>
+    </Content>
     <Content Include="Vendor\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="Vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" />
     <Content Include="Vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
     <Content Include="Vendor\slimscroll\jquery.slimscroll.min.js" />
     <Content Include="Vendor\tagify\css\tagify.css" />
     <Content Include="Vendor\tagify\js\jQuery.tagify.min.js" />
     <Content Include="Vendor\tagify\js\tagify.min.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
@@ -2082,14 +2411,14 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Upload.cshtml" />
     <Content Include="Views\Settings\WaybillSettings.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_LoginLayout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Components\Nav\_3rdPartyUserMenu.cshtml" />
     <Content Include="Views\Shared\Components\Nav\_AdminUserMenu.cshtml" />
     <Content Include="Views\Shared\Components\Nav\_InvoiceUserMenu.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Transporters\Create.cshtml" />
     <Content Include="Views\Transporters\Delete.cshtml" />
     <Content Include="Views\Transporters\Details.cshtml" />
@@ -2101,77 +2430,18 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Vendor\bootstrap\css\bootstrap-grid.css.map" />
-    <Content Include="Vendor\bootstrap\css\bootstrap-grid.min.css.map" />
-    <Content Include="Vendor\bootstrap\css\bootstrap-reboot.css.map" />
-    <Content Include="Vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
-    <Content Include="Vendor\bootstrap\css\bootstrap.css.map" />
-    <Content Include="Vendor\bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="Vendor\bootstrap\js\bootstrap.bundle.js.map" />
-    <Content Include="Vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
-    <Content Include="Vendor\bootstrap\js\bootstrap.js.map" />
-    <Content Include="Vendor\bootstrap\js\bootstrap.min.js.map" />
-    <Content Include="Vendor\bootstrap4-toggle\js\bootstrap4-toggle.min.js.map" />
-    <Content Include="Vendor\datatable\buttons\css\common.scss" />
-    <Content Include="Vendor\datatable\buttons\css\mixins.scss" />
-    <Content Include="Vendor\fontawesome\less\_animated.less" />
-    <Content Include="Vendor\fontawesome\less\_bordered-pulled.less" />
-    <Content Include="Vendor\fontawesome\less\_core.less" />
-    <Content Include="Vendor\fontawesome\less\_fixed-width.less" />
-    <Content Include="Vendor\fontawesome\less\_icons.less" />
-    <Content Include="Vendor\fontawesome\less\_larger.less" />
-    <Content Include="Vendor\fontawesome\less\_list.less" />
-    <Content Include="Vendor\fontawesome\less\_mixins.less" />
-    <Content Include="Vendor\fontawesome\less\_rotated-flipped.less" />
-    <Content Include="Vendor\fontawesome\less\_screen-reader.less" />
-    <Content Include="Vendor\fontawesome\less\_shims.less" />
-    <Content Include="Vendor\fontawesome\less\_stacked.less" />
-    <Content Include="Vendor\fontawesome\less\_variables.less" />
-    <Content Include="Vendor\fontawesome\less\brands.less" />
-    <Content Include="Vendor\fontawesome\less\fontawesome.less" />
-    <Content Include="Vendor\fontawesome\less\regular.less" />
-    <Content Include="Vendor\fontawesome\less\solid.less" />
-    <Content Include="Vendor\fontawesome\less\v4-shims.less" />
-    <Content Include="Vendor\fontawesome\metadata\categories.yml" />
-    <Content Include="Vendor\fontawesome\metadata\icons.json" />
-    <Content Include="Vendor\fontawesome\metadata\icons.yml" />
-    <Content Include="Vendor\fontawesome\metadata\shims.json" />
-    <Content Include="Vendor\fontawesome\metadata\shims.yml" />
-    <Content Include="Vendor\fontawesome\metadata\sponsors.yml" />
-    <Content Include="Vendor\fontawesome\scss\_animated.scss" />
-    <Content Include="Vendor\fontawesome\scss\_bordered-pulled.scss" />
-    <Content Include="Vendor\fontawesome\scss\_core.scss" />
-    <Content Include="Vendor\fontawesome\scss\_fixed-width.scss" />
-    <Content Include="Vendor\fontawesome\scss\_icons.scss" />
-    <Content Include="Vendor\fontawesome\scss\_larger.scss" />
-    <Content Include="Vendor\fontawesome\scss\_list.scss" />
-    <Content Include="Vendor\fontawesome\scss\_mixins.scss" />
-    <Content Include="Vendor\fontawesome\scss\_rotated-flipped.scss" />
-    <Content Include="Vendor\fontawesome\scss\_screen-reader.scss" />
-    <Content Include="Vendor\fontawesome\scss\_shims.scss" />
-    <Content Include="Vendor\fontawesome\scss\_stacked.scss" />
-    <Content Include="Vendor\fontawesome\scss\_variables.scss" />
-    <Content Include="Vendor\fontawesome\scss\brands.scss" />
-    <Content Include="Vendor\fontawesome\scss\fontawesome.scss" />
-    <Content Include="Vendor\fontawesome\scss\regular.scss" />
-    <Content Include="Vendor\fontawesome\scss\solid.scss" />
-    <Content Include="Vendor\fontawesome\scss\v4-shims.scss" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-brands-400.eot" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-brands-400.ttf" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-brands-400.woff" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-brands-400.woff2" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-regular-400.eot" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-regular-400.ttf" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-regular-400.woff" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-regular-400.woff2" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-solid-900.eot" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-solid-900.ttf" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-solid-900.woff" />
-    <Content Include="Vendor\fontawesome\webfonts\fa-solid-900.woff2" />
-    <Content Include="Vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" />
-    <Content Include="Vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
-    <Content Include="Vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
-    <Content Include="Vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <None Include="Scripts\jquery-3.7.1-vsdoc.js" />
+    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InvoiceGenerator.Core\InvoiceGenerator.Core.csproj">
@@ -2181,8 +2451,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.7.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TempUploads\" />
