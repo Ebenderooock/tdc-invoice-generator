@@ -28,13 +28,9 @@ jobs:
         run: >
           msbuild InvoiceGenerator.TDC/InvoiceGenerator.TDC.csproj
           /p:Configuration=Release
-          /p:OutputPath=bin\Release\
-          /p:DeployOnBuild=true
-          /p:WebPublishMethod=FileSystem
-          /p:PublishProvider=FileSystem
+          /p:PublishProfile=FolderProfile
+          /p:DeployOnBuild=true 
           /verbosity:quiet
-          /t:Build;_CopyWebApplication
-          /p:WebProjectOutputDir=published/tdc
 
       - name: Upload TDC artifact
         uses: actions/upload-artifact@v4
@@ -46,14 +42,9 @@ jobs:
         run: >
           msbuild InvoiceGenerator.TS/InvoiceGenerator.TS.csproj
           /p:Configuration=Release
-          /p:OutputPath=bin\Release\
-          /p:DeployOnBuild=true
-          /p:WebPublishMethod=FileSystem
-          /p:PublishProvider=FileSystem
-          /p:AllowUntrustedCertificate=true
+          /p:PublishProfile=FolderProfile
+          /p:DeployOnBuild=true 
           /verbosity:quiet
-          /t:Build;_CopyWebApplication
-          /p:WebProjectOutputDir=published/ts
 
       - name: Upload TS artifact
         uses: actions/upload-artifact@v4
