@@ -33,12 +33,14 @@ jobs:
           /p:WebPublishMethod=FileSystem
           /p:PublishProvider=FileSystem
           /verbosity:quiet
+          /t:Build;_CopyWebApplication
+          /p:WebProjectOutputDir=published/tdc
 
       - name: Upload TDC artifact
         uses: actions/upload-artifact@v4
         with:
           name: ASP-app-tdc
-          path: InvoiceGenerator.TDC/bin/release
+          path: published/tdc
 
       - name: Publish InvoiceGenerator.TS
         run: >
@@ -50,12 +52,14 @@ jobs:
           /p:PublishProvider=FileSystem
           /p:AllowUntrustedCertificate=true
           /verbosity:quiet
+          /t:Build;_CopyWebApplication
+          /p:WebProjectOutputDir=published/ts
 
       - name: Upload TS artifact
         uses: actions/upload-artifact@v4
         with:
           name: ASP-app-ts
-          path: InvoiceGenerator.TS/bin/release
+          path: published/ts
 
 
   deploy-tdc:
