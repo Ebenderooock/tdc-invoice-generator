@@ -5,8 +5,6 @@ VisualStudioVersion = 17.14.36109.1 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDC Invoice Generator", "TDC Invoice Generator\TDC Invoice Generator.csproj", "{D1AF9BED-DA1E-4D01-A161-AD6DF79C85E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceGenerator", "InvoiceGenerator\InvoiceGenerator.csproj", "{808BC2D2-94A3-9B0D-BE24-058DEEE12530}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{D1AF9BED-DA1E-4D01-A161-AD6DF79C85E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1AF9BED-DA1E-4D01-A161-AD6DF79C85E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1AF9BED-DA1E-4D01-A161-AD6DF79C85E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{808BC2D2-94A3-9B0D-BE24-058DEEE12530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{808BC2D2-94A3-9B0D-BE24-058DEEE12530}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{808BC2D2-94A3-9B0D-BE24-058DEEE12530}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{808BC2D2-94A3-9B0D-BE24-058DEEE12530}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
