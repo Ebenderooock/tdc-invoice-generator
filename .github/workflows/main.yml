@@ -26,11 +26,17 @@ jobs:
 
       - name: Publish InvoiceGenerator.TDC
         run: >
-          msbuild InvoiceGenerator.TDC/InvoiceGenerator.TDC.csproj 
-          /p:DeployOnBuild=true 
-          /p:WebPublishMethod=FileSystem 
-          /p:PublishUrl="published/tdc"
+          msbuild InvoiceGenerator.TDC/InvoiceGenerator.TDC.csproj
           /p:Configuration=Release
+          /p:OutputPath=bin\Release\
+          /p:DeployOnBuild=true
+          /p:WebPublishMethod=FileSystem
+          /p:PrecompileBeforePublish=true
+          /p:PublishProvider=FileSystem
+          /p:PublishUrl=published/tdc
+          /p:AllowUntrustedCertificate=true
+          /p:VisualStudioVersion=17.0
+          /t:PipelinePreDeployCopyAllFilesToOneFolder
 
       - name: Upload TDC artifact
         uses: actions/upload-artifact@v4
@@ -40,11 +46,17 @@ jobs:
 
       - name: Publish InvoiceGenerator.TS
         run: >
-          msbuild InvoiceGenerator.TS/InvoiceGenerator.TS.csproj 
-          /p:DeployOnBuild=true 
-          /p:WebPublishMethod=FileSystem 
-          /p:PublishUrl="published/ts"
+          msbuild InvoiceGenerator.TS/InvoiceGenerator.TS.csproj
           /p:Configuration=Release
+          /p:OutputPath=bin\Release\
+          /p:DeployOnBuild=true
+          /p:WebPublishMethod=FileSystem
+          /p:PrecompileBeforePublish=true
+          /p:PublishProvider=FileSystem
+          /p:PublishUrl=published/ts
+          /p:AllowUntrustedCertificate=true
+          /p:VisualStudioVersion=17.0
+          /t:PipelinePreDeployCopyAllFilesToOneFolder
 
       - name: Upload TS artifact
         uses: actions/upload-artifact@v4
@@ -82,7 +94,7 @@ jobs:
         with:
           app-name: 'tdc-prod-wa-web01'
           slot-name: 'Production'
-          package: .
+          package: ASP-app-tdc
           
   deploy-ts:
     runs-on: windows-latest
@@ -113,4 +125,4 @@ jobs:
         with:
           app-name: 'TS-PROD-WA-WEB01'
           slot-name: 'Production'
-          package: .
+          package: ASP-app-ts
