@@ -1,0 +1,116 @@
+name: Build and deploy ASP app to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MSBuild path
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+
+      - name: Restore NuGet packages
+        run: nuget restore
+
+      - name: Publish InvoiceGenerator.TDC
+        run: >
+          msbuild InvoiceGenerator.TDC/InvoiceGenerator.TDC.csproj 
+          /p:DeployOnBuild=true 
+          /p:WebPublishMethod=FileSystem 
+          /p:PublishUrl="published/tdc"
+          /p:Configuration=Release
+
+      - name: Upload TDC artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ASP-app-tdc
+          path: published/tdc/
+
+      - name: Publish InvoiceGenerator.TS
+        run: >
+          msbuild InvoiceGenerator.TS/InvoiceGenerator.TS.csproj 
+          /p:DeployOnBuild=true 
+          /p:WebPublishMethod=FileSystem 
+          /p:PublishUrl="published/ts"
+          /p:Configuration=Release
+
+      - name: Upload TS artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ASP-app-ts
+          path: published/ts/
+
+
+  deploy-tdc:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: ASP-app-tdc
+      
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_157784D345194B378CF6648E338AC30A }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6DF2AE4702964360B520D0D36A27D4C0 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6641DD016CFD4096AB8425C2C1690EC7 }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'tdc-prod-wa-web01'
+          slot-name: 'Production'
+          package: .
+          
+  deploy-ts:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: ASP-app-ts
+      
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1BB4FDD9F7F74F108CB2876541E8414F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_AAC020427411480FB4C0F90BCC4EB4E5 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_17EF252EF44C42C3B2A2DEEC018B9278 }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'TS-PROD-WA-WEB01'
+          slot-name: 'Production'
+          package: .
