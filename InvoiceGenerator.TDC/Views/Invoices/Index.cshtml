@@ -1,0 +1,140 @@
+﻿@using InvoiceGenerator.Core.Helper
+@using InvoiceGenerator.Core.Models
+@using InvoiceGenerator.Core.ViewModels.Invoices
+@model IEnumerable<InvoiceGenerator.Core.ViewModels.Invoices.IndexInvoiceViewModel>
+@{
+    ViewBag.Title = "Invoices";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles {
+    @Styles.Render("~/css/datatable")
+    @Styles.Render("~/css/flatpickr")
+}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+    @using (Html.BeginForm("DownloadMonthlyReportExcel", "Invoices", FormMethod.Post, FormMethod.Post, new { id = "MonthlyReportForm", role = "form", @class = "needs-validation" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle1">Download Report</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <label for="MinDate">Start Date</label>
+                            <input type="text" class="form-control datePicker" id="MinDate" name="MinDate" />
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <label for="MaxDate">End Date</label>
+                            <input type="text" class="form-control datePicker" id="MaxDate" name="MaxDate" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-file-download"></i> Download</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="row">
+    <div class="col-12 mt-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive mb-4 mt-4">
+                    <table id="invoicesTable" class="display table dataTable table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.ClientId)</th>
+                                <th>@Html.DisplayNameFor(model => model.InvoiceDate)</th>
+                                <th>@Html.DisplayNameFor(model => model.PoNumber)</th>
+                                <th>@Html.DisplayNameFor(model => model.GeneralWaybillNumber)</th>
+                                <th class="text-center">@Html.DisplayNameFor(model => model.BranchCode)</th>
+                                <th class="text-center">@Html.DisplayNameFor(model => model.Status)</th>
+                                <th class="no-content"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (IndexInvoiceViewModel item in Model)
+                            {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Client.Name)</td>
+                                <td>
+                                    @item.InvoiceDate.ToString("dd/MM/yyyy")
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.PoNumber)</td>
+                                <td>@Html.DisplayFor(modelItem => item.GeneralWaybillNumber)</td>
+                                <td class="text-center">
+                                    @{
+                                        string bgColor = ColorHelper.StringToColor(item.BranchCode);
+                                        string color = ColorHelper.GetContrastingText(bgColor);
+                                        
+                                    }
+                                    <span class="badge badge-pill p-2 mb-1" style="background-color: @bgColor; color: @color">@item.BranchName</span>
+                                </td>
+                                <td class="text-center">
+                                    @if (item.IsDeleted)
+                                    {
+                                        <span class="badge badge-pill p-2 outline-badge-danger mb-1">Deleted</span>
+                                    }
+                                    else
+                                    {
+                                        if (item.Status == "PD")
+                                        {
+                                            <span class="badge badge-pill p-2 outline-badge-warning mb-1">Pending</span>
+                                        }
+
+                                        if (item.Status == "DL")
+                                        {
+                                            <span class="badge badge-pill p-2 badge-primary mb-1">Delivered</span>
+                                        }
+                                    }
+                                    
+                                </td>
+                                <td>
+                                    @if (!item.IsDeleted)
+                                    {
+                                        <a href="@Url.Action("Edit", new {id = item.Id})" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a> 
+                                    }
+                                    <a href="@Url.Action("Details", new {id = item.Id})" class="btn btn-info"><i class="fas fa-eye"></i> Details</a>
+                                    @if (!item.IsDeleted)
+                                    {
+                                        <a href="@Url.Action("Delete", new {id = item.Id})" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+                                    }
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.ClientId)</th>
+                                <th>@Html.DisplayNameFor(model => model.InvoiceDate)</th>
+                                <th>@Html.DisplayNameFor(model => model.PoNumber)</th>
+                                <th>@Html.DisplayNameFor(model => model.GeneralWaybillNumber)</th>
+                                <th class="text-center">@Html.DisplayNameFor(model => model.BranchCode)</th>
+                                <th class="text-center">@Html.DisplayNameFor(model => model.Status)</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @NoCacheScripts.Render("~/js/datatable")
+    <script src="~/Vendor/moment/moment.js"></script>
+    <script src="~/Vendor/datatable/js/datetime-moment.js"></script>   
+    @NoCacheScripts.Render("~/js/flatpickr")
+    @NoCacheScripts.Render("~/js/invoices/index")
+}

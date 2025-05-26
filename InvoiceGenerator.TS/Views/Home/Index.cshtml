@@ -1,0 +1,83 @@
+﻿@model InvoiceGenerator.Core.ViewModels.Dashboards.InvoiceDashboardViewModel
+
+@{
+    ViewBag.Title = "Invoice Dashboard";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Vendor/chartjs/css/chart.min.css" />
+}
+
+<div class="row">
+    <div class="col-12  col-md-6 col-lg-3 mt-3">
+        <div class="card border-bottom-0">
+            <div class="card-content border-bottom border-primary border-w-5">
+                <div class="card-body p-4">
+                    <div class="d-flex">
+                        <div class="circle-50 outline-badge-primary"> <i class="fas fa-file-invoice-dollar fa-1-5x mt-2"></i></div>
+                        <div class="media-body align-self-center pl-3">
+                            <span class="mb-0 h6 font-w-600">Total Invoices</span><br>
+                            <p class="mb-0 font-w-500 h6">@Model.TotalInvoices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12  col-md-6 col-lg-3 mt-3">
+        <div class="card border-bottom-0">
+            <div class="card-content border-bottom border-warning border-w-5">
+                <div class="card-body p-4">
+                    <div class="d-flex">
+                        <div class="circle-50 outline-badge-warning"> <i class="fas fa-boxes fa-1-5x mt-2"></i></div>
+                        <div class="media-body align-self-center pl-3">
+                            <span class="mb-0 h6 font-w-600">Total Products</span><br>
+                            <p class="mb-0 font-w-500 h6">@Model.TotalProducts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12  col-md-6 col-lg-3 mt-3">
+        <div class="card border-bottom-0">
+            <div class="card-content border-bottom border-danger border-w-5">
+                <div class="card-body p-4">
+                    <div class="d-flex">
+                        <div class="circle-50 outline-badge-danger"> <i class="fas fa-users fa-1-5x mt-2"></i></div>
+                        <div class="media-body align-self-center pl-3">
+                            <span class="mb-0 h6 font-w-600">Total Clients</span><br>
+                            <p class="mb-0 font-w-500 h6">@Model.TotalClients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12  col-md-6 col-lg-3 mt-3">
+        <div class="card border-bottom-0">
+            <div class="card-content border-bottom border-info border-w-5">
+                <div class="card-body p-4">
+                    <div class="d-flex">
+                        <div class="circle-50 outline-badge-info"> <i class="fas fa-address-card fa-1-5x mt-2"></i></div>
+                        <div class="media-body align-self-center pl-3">
+                            <span class="mb-0 h6 font-w-600">Total Users</span><br>
+                            <p class="mb-0 font-w-500 h6">@Model.TotalUsers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-12 mt-3">
+        <div class="card">
+            <div class="card-body text-center">
+                <div id="invoicesPerMonthChart" class="height-500"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/js/dashboard/invoices")
+}

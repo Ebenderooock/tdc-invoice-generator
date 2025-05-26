@@ -1,0 +1,109 @@
+﻿@using InvoiceGenerator.Core.Helper
+@model InvoiceGenerator.Core.ViewModels.Users.EditUserViewModel
+@{
+    ViewBag.Title = "User Edit";
+    ViewBag.Name = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles {
+    @Styles.Render("~/css/switches")
+}
+<div class="row">
+    <div class="col-12 mt-3">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { id = "EditUserForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Id)
+                        <div class="row">
+                            <div class="col-12">
+                                <nav>
+                                    <div class="nav nav-tabs font-weight-bold border-bottom" id="nav-tab" role="tablist">
+                                        <a class="nav-item nav-link active" id="nav-basic-information-tab" data-toggle="tab" href="#nav-basic-information" role="tab" aria-controls="nav-basic-information" aria-selected="true"><i class="fas fa-info-circle font-12"></i> Basic Information</a>
+                                        <a class="nav-item nav-link" id="nav-roles-tab" data-toggle="tab" href="#nav-roles" role="tab" aria-controls="nav-roles" aria-selected="false"><i class="fas fa-user-tag font-12"></i> Roles</a>
+                                    </div>
+                                </nav>
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade active show mt-4" id="nav-basic-information" role="tabpanel" aria-labelledby="nav-basic-information-tab">
+                                        <div class="form-row">
+                                            <div class="form-group col-lg-6 col-md-12 col-sm-12 mb-3">
+                                                @Html.LabelFor(model => model.FirstName)
+                                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control required" } })
+                                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                                @Html.LabelFor(model => model.LastName)
+                                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control required" } })
+                                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                                @Html.LabelFor(model => model.Email)
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                                @Html.LabelFor(model => model.PhoneNumber)
+                                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                @Html.LabelFor(model => model.BranchCode)
+                                                @Html.DropDownList("BranchCode", (IEnumerable<SelectListItem>)Model.BranchCodes.Select(x => new SelectListItem { Text = x.Text, Value = x.Value, Selected = x.Selected }), "Select a Branch", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.BranchCode, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                                @Html.LabelFor(model => model.Password)
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                                @Html.LabelFor(model => model.ConfirmPassword)
+                                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade mt-4" id="nav-roles" role="tabpanel" aria-labelledby="nav-roles-tab">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped pick-table mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Role</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (InvoiceGenerator.Core.ViewModels.Users.Role item in Model.Roles)
+                                                    {
+                                                        <tr class="td-wrap">
+                                                            <td>
+                                                                <strong>@item.Name</strong>
+                                                            </td>
+                                                            <td>
+                                                                <input type="checkbox" value="@item.Id" name="Assignments" id="Assignment_@item.Name" data-toggle="toggle" data-size="sm" @(item.Assigned == true ? "checked" : "")>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-primary" id="EditUserForm"><i class="far fa-save"></i> Save</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    @NoCacheScripts.Render("~/bundles/jqueryval")
+    @NoCacheScripts.Render("~/js/switches")
+    @NoCacheScripts.Render("~/js/users/edit")
+}

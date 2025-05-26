@@ -1,0 +1,61 @@
+﻿@model InvoiceGenerator.Core.ViewModels.Users.DeleteUserViewModel
+@{
+    ViewBag.Title = "Delete User";
+    ViewBag.Name = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Content/css/alert.css">
+}
+<div class="row">
+    <div class="col-12 mt-3">
+        <div class="alert alert-danger" role="alert">
+            <span class="alert-link">Alert!</span> Are you sure you want to delete user @Model.FirstName @Model.LastName?
+        </div>
+    </div>
+    <div class="col-12 mt-3">
+        <div class="card border-danger">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-row">
+                                <div class="form-group col-lg-6 col-md-12 col-sm-12 mb-3">
+                                    @Html.LabelFor(model => model.FirstName)
+                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                </div>
+                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                    @Html.LabelFor(model => model.LastName)
+                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                </div>
+                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                    @Html.LabelFor(model => model.Email)
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                </div>
+                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                    @Html.LabelFor(model => model.PhoneNumber)
+                                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                </div>
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    @Html.LabelFor(model => model.BranchCode)
+                                    @Html.DropDownList("BranchCode", (IEnumerable<SelectListItem>)Model.BranchCodes.Select(x => new SelectListItem { Text = x.Text, Value = x.Value, Selected = x.Selected }), "Select a Branch", new { @class = "form-control", disabled = "disabled" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-4">
+                            @using (Html.BeginForm("Delete", "Users", FormMethod.Post, new { id = "DeleteUserForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-danger" id="FormSubmit"><i class="fas fa-trash-alt"></i> Delete</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/js/users/delete")
+}

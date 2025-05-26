@@ -1,0 +1,158 @@
+﻿@using System.Configuration
+@using InvoiceGenerator.Core.Helper
+@using InvoiceGenerator.Core.Models
+
+@{
+
+    string iconUrl = Settings.IconUrl;
+    string logoUrl =  Settings.LogoUrl;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- START: Head-->
+<head>
+    <meta charset="UTF-8">
+    <title>@Settings.ApplicationTitle</title>
+    <link rel="shortcut icon" href="@iconUrl" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+
+    <!-- START: Template CSS-->
+    @Styles.Render("~/css/mandatory")
+    <!-- END Template CSS-->
+    <!-- START: Page CSS-->
+    @RenderSection("styles", required: false)
+    <!-- END: Page CSS-->
+    <!-- START: Custom CSS-->
+    @Styles.Render("~/css/custom")
+    <!-- END: Custom CSS-->
+</head>
+<!-- END Head-->
+<!-- START: Body-->
+<body id="main-container" class="default">
+
+    <!-- START: Pre Loader-->
+    <div class="se-pre-con">
+        <div class="loader"></div>
+    </div>
+    <!-- END: Pre Loader-->
+    <!-- START: Header-->
+    <div id="header-fix" class="header fixed-top">
+        <div class="site-width">
+            <nav class="navbar navbar-expand-lg  p-0">
+                <div class="navbar-header  h-100 h4 mb-0 align-self-center logo-bar text-center">
+                    <a href="/" class="horizontal-logo text-center">
+                        <img src="@logoUrl">
+                    </a>
+                </div>
+                <div class="navbar-header h4 mb-0 text-center h-100 collapse-menu-bar">
+                    <a href="#" class="sidebarCollapse" id="collapse"><i class="icon-menu"></i></a>
+                </div>
+                <div class="navbar-right ml-auto h-100">
+                    <ul class="ml-auto p-0 m-0 list-unstyled d-flex top-icon h-100">
+                        <li class="dropdown user-profile align-self-center d-inline-block">
+                            <a href="/" class="nav-link py-0" data-toggle="dropdown" aria-expanded="false">
+                                <div class="circle-30 outline-badge-primary"> <i class="fas fa-cog"></i></div>
+                            </a>
+
+                            <div class="dropdown-menu border dropdown-menu-right p-0">
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item px-2 text-danger align-self-center d-flex">
+                                        <span class="icon-logout mr-2 h6  mb-0"></span> Sign Out
+                                    </a>
+                                }
+                            </div>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- END: Header-->
+    <!-- START: Main Menu-->
+    <div class="sidebar">
+        <div class="site-width">
+            <!-- START: Menu-->
+            @if (User.IsInRole(RoleName.Admin))
+            {
+                @Html.Partial("~/Views/Shared/Components/Nav/_AdminUserMenu.cshtml");
+            }
+            else if (User.IsInRole(RoleName.ThirdParty))
+            {
+                @Html.Partial("~/Views/Shared/Components/Nav/_3rdPartyUserMenu.cshtml");
+            }
+            else
+            {
+                if (User.IsInRole(RoleName.Invoicing))
+                {
+                    @Html.Partial("~/Views/Shared/Components/Nav/_InvoiceUserMenu.cshtml");
+                }
+            }
+            <!-- END: Menu-->
+            <ol class="breadcrumb bg-transparent align-self-center m-0 p-0 ml-auto">
+                <li class="breadcrumb-item"><a href="#">Application</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </div>
+    </div>
+    <!-- END: Main Menu-->
+    <!-- START: Main Content-->
+    <main>
+        <div class="container-fluid site-width">
+            <!-- START: Breadcrumbs-->
+            <div class="row">
+                <div class="col-12  align-self-center">
+                    <div class="sub-header mt-3 py-3 align-self-center d-sm-flex w-100 rounded">
+                        <div class="w-sm-100 mr-auto"><h4 class="mb-0">@ViewBag.title</h4></div>
+                        @{
+
+                            object action = ViewContext.RouteData.Values["Action"];
+                            object controller = ViewContext.RouteData.Values["Controller"];
+                        }
+
+                    <ol class="breadcrumb bg-transparent align-self-center m-0 p-0"> 
+                        @if (controller.ToString() == "Invoices" && action.ToString() == "Index" && !User.IsInRole(RoleName.ThirdParty))
+                        {
+                            <li class="ml-2">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                    <i class="fas fa-file-excel"></i> Download Report
+                                </button>
+                            </li>
+                        }
+
+                    </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Breadcrumbs-->
+            <!-- START: Card Data-->
+            @RenderBody()
+            <!-- END: Card DATA-->
+        </div>
+    </main>
+    <!-- END: Content-->
+    <!-- START: Footer-->
+    <footer class="site-footer">
+        <p>&copy; @DateTime.Now.Year - @Settings.CompanyName
+    </footer>
+    <!-- END: Footer-->
+    <!-- START: Back to top-->
+    <a href="#" class="scrollup text-center">
+        <i class="icon-arrow-up"></i>
+    </a>
+    <!-- END: Back to top-->
+    <!-- START: APP JS-->
+    @Scripts.Render("~/js/mandatory")
+    <!-- END: APP JS-->
+    <!-- START: Page JS-->
+    @RenderSection("scripts", required: false)
+    <!-- END: Page JS-->
+</body>
+<!-- END: Body-->
+</html>
