@@ -31,7 +31,6 @@ jobs:
           /p:OutputPath=bin\Release\
           /p:DeployOnBuild=true
           /p:WebPublishMethod=FileSystem
-          /p:PrecompileBeforePublish=true
           /p:PublishProvider=FileSystem
           /p:PublishUrl=published/tdc
           /p:AllowUntrustedCertificate=true
@@ -51,7 +50,6 @@ jobs:
           /p:OutputPath=bin\Release\
           /p:DeployOnBuild=true
           /p:WebPublishMethod=FileSystem
-          /p:PrecompileBeforePublish=true
           /p:PublishProvider=FileSystem
           /p:PublishUrl=published/ts
           /p:AllowUntrustedCertificate=true
