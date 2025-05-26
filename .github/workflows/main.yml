@@ -29,8 +29,10 @@ jobs:
           msbuild InvoiceGenerator.TDC/InvoiceGenerator.TDC.csproj
           /p:Configuration=Release
           /p:PublishProfile=FolderProfile
-          /p:DeployOnBuild=true 
+          /t:Build;Publish
+          /p:WebPublishMethod=FileSystem
           /verbosity:quiet
+          
 
       - name: Upload TDC artifact
         uses: actions/upload-artifact@v4
@@ -43,7 +45,8 @@ jobs:
           msbuild InvoiceGenerator.TS/InvoiceGenerator.TS.csproj
           /p:Configuration=Release
           /p:PublishProfile=FolderProfile
-          /p:DeployOnBuild=true 
+          /t:Build;Publish
+          /p:WebPublishMethod=FileSystem
           /verbosity:quiet
 
       - name: Upload TS artifact
