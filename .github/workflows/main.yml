@@ -36,6 +36,7 @@ jobs:
           /p:AllowUntrustedCertificate=true
           /p:VisualStudioVersion=17.0
           /t:PipelinePreDeployCopyAllFilesToOneFolder
+          /verbosity:minimal
 
       - name: Upload TDC artifact
         uses: actions/upload-artifact@v4
@@ -55,6 +56,7 @@ jobs:
           /p:AllowUntrustedCertificate=true
           /p:VisualStudioVersion=17.0
           /t:PipelinePreDeployCopyAllFilesToOneFolder
+          /verbosity:minimal
 
       - name: Upload TS artifact
         uses: actions/upload-artifact@v4
