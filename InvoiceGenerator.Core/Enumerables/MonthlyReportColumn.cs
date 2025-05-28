@@ -1,15 +1,18 @@
 ﻿namespace InvoiceGenerator.Core.Enumerables;
 
-public enum MonthlyReportColumns
+public enum MonthlyReportColumn
 {
     Date,
     Day,
-    Client,
-    PONumber,
-    WaybillNumber,
+    Company,
+    Poa,
+    Delivery,
     Product,
     Quantity,
     UnitSize,
     TotalKg,
     Pallets,
+    BatchNumber,
+    Transporter,
+    TransporterPoNumber
 }

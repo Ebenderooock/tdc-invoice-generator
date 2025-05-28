@@ -297,6 +297,7 @@
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\TransportersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Enumerables\MonthlyReportColumn.cs" />
     <Compile Include="Helper\MonthlyReportTool.cs" />
     <Compile Include="Helper\Settings.cs" />
     <Compile Include="Helper\NoCacheScripts.cs" />
