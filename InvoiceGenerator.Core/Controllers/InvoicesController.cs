@@ -7,11 +7,13 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using InvoiceGenerator.Core.Helper;
 using InvoiceGenerator.Core.Models;
 using InvoiceGenerator.Core.ViewModels.Invoices;
 using InvoiceGenerator.Core.ViewModels.Users;
+using Z.EntityFramework.Plus;
 
 namespace InvoiceGenerator.Core.Controllers
 {
@@ -20,13 +22,11 @@ namespace InvoiceGenerator.Core.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly TDCDbContext _tdcContext;
-        private readonly string CompanyName = "";
 
         public InvoicesController()
         {
             _context = new ApplicationDbContext();
             _tdcContext = new TDCDbContext();
-
         }
 
         protected override void Dispose(bool disposing)
@@ -105,7 +105,6 @@ namespace InvoiceGenerator.Core.Controllers
             Branch branch = _context.Branches.FirstOrDefault(b => b.Code == user.BranchCode);
             if (User.IsInRole(RoleName.ThirdParty))
             {
-
                 branchQuery = branchQuery.Where(b => b.Code.Equals(user.BranchCode));
                 productQuery = productQuery.Where(p => p.Branches.Count(b => b.BranchId == branch.Id) > 0);
                 clientQuery = clientQuery.Where(p => p.Branches.Count(b => b.BranchId == branch.Id) > 0);
@@ -293,7 +292,6 @@ namespace InvoiceGenerator.Core.Controllers
             Branch branch = _context.Branches.FirstOrDefault(b => b.Code == user.BranchCode);
             if (User.IsInRole(RoleName.ThirdParty))
             {
-
                 branchQuery = branchQuery.Where(b => b.Code.Equals(user.BranchCode));
                 productQuery = productQuery.Where(p => p.Branches.Count(b => b.BranchId == branch.Id) > 0);
                 clientQuery = clientQuery.Where(p => p.Branches.Count(b => b.BranchId == branch.Id) > 0);
@@ -397,20 +395,20 @@ namespace InvoiceGenerator.Core.Controllers
                             invoiceInDb.GeneralWaybillNumber = null;
                             break;
                         case "DL":
+                        {
+                            settings = _context.Settings.SingleOrDefault(x => x.Id == "4d89ab77-8a08-45d8-b5f5-ab08abca1cf6");
+                            if (settings != null)
                             {
-                                settings = _context.Settings.SingleOrDefault(x => x.Id == "4d89ab77-8a08-45d8-b5f5-ab08abca1cf6");
-                                if (settings != null)
-                                {
-                                    int waybillNumber = settings.LastWaybillNumber + 1;
-                                    invoiceInDb.GeneralWaybillNumber = waybillNumber.ToString();
-                                }
-                                else
-                                {
-                                    invoiceInDb.GeneralWaybillNumber = null;
-                                }
-
-                                break;
+                                int waybillNumber = settings.LastWaybillNumber + 1;
+                                invoiceInDb.GeneralWaybillNumber = waybillNumber.ToString();
                             }
+                            else
+                            {
+                                invoiceInDb.GeneralWaybillNumber = null;
+                            }
+
+                            break;
+                        }
                     }
                 }
 
@@ -460,7 +458,6 @@ namespace InvoiceGenerator.Core.Controllers
             }
 
             return RedirectToAction("Index");
-
         }
 
         // GET: Invoices/Delete/5
@@ -535,7 +532,6 @@ namespace InvoiceGenerator.Core.Controllers
 
         public ActionResult GetProducts(string invoiceId)
         {
-
             Invoice invoice = null;
 
             if (!string.IsNullOrWhiteSpace(invoiceId))
@@ -921,96 +917,61 @@ namespace InvoiceGenerator.Core.Controllers
                 RedirectToAction("Index").ExecuteResult(ControllerContext);
             }
         }
-
-        public void DownloadMonthlyReportExcel(DateTime minDate, DateTime maxDate)
+        public async Task DownloadMonthlyReportExcel(DateTime minDate, DateTime maxDate)
         {
-            List<Invoice> invoices = _context.Invoices.Include(c => c.Client).Include(i => i.InvoiceItems.Select(it => it.Product))
-                .Where(d => d.InvoiceDate >= minDate && d.InvoiceDate <= maxDate && d.IsDeleted == false).OrderBy(d => d.InvoiceDate).ToList();
+            _context.Database.CommandTimeout = 120;
 
-            DateTime dateTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "South Africa Standard Time");
+          var monthlyReportTool = new  MonthlyReportTool(_context);
 
+            var invoiceData = await monthlyReportTool.FetchInvoiceData(minDate, maxDate);
+            if (!invoiceData.Any())
+                return;
 
-            FileInfo template = new FileInfo(Server.MapPath(Settings.ReportTemplatePath));
+            string templatePath = Server.MapPath(Settings.ReportTemplatePath);
+            if (!System.IO.File.Exists(templatePath))
+                return;
 
-            if (template.Exists)
+            FileInfo template = new FileInfo(templatePath);
+            using var ep = new ExcelPackage(template);
+
+            ExcelWorksheet sheet = ep.Workbook.Worksheets.Copy("MasterSheet", "Sheet1");
+            int rowCount = 9;
+            int pageCount = 1;
+
+            foreach (var invoice in invoiceData)
             {
-                using (ExcelPackage ep = new ExcelPackage(template))
+                foreach (var item in invoice.InvoiceItems)
                 {
-                    ExcelWorksheet sheet = ep.Workbook.Worksheets.Copy("MasterSheet", "Sheet1");
-
-                    int rowCount = 9;
-                    int pageCount = 1;
-
-                    foreach (Invoice item in invoices)
-                    {
-                        sheet.Cells[$"A{rowCount}"].Value = item.InvoiceDate.ToString("dd/MM/yyyy");
-                        sheet.Cells[$"B{rowCount}"].Value = item.InvoiceDate.DayOfWeek.ToString();
-                        sheet.Cells[$"B{rowCount}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                        sheet.Cells[$"C{rowCount}"].Value = item.Client.Name;
-                        sheet.Cells[$"D{rowCount}"].Value = item.PoNumber;
-
-
-                        sheet.Cells[$"E{rowCount}"].Value = item.BranchCode + item.GeneralWaybillNumber;
-                        sheet.Cells[$"E{rowCount}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-
-
-                        // Filter Invoice Items for IsDeleted and sort them
-                        List<InvoiceItem> invoiceItemsList = item.InvoiceItems.Where(i => i.IsDeleted == false).OrderBy(d => d.Order).ToList();
-
-                        foreach (InvoiceItem invoiceItem in invoiceItemsList)
-                        {
-                            sheet.Cells[$"A{rowCount}"].Value = item.InvoiceDate.ToString("dd/MM/yyyy");
-                            sheet.Cells[$"B{rowCount}"].Value = item.InvoiceDate.DayOfWeek.ToString();
-                            sheet.Cells[$"B{rowCount}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                            sheet.Cells[$"C{rowCount}"].Value = item.Client.Name;
-                            sheet.Cells[$"D{rowCount}"].Value = item.PoNumber;
-                            sheet.Cells[$"E{rowCount}"].Value = item.BranchCode + item.GeneralWaybillNumber;
-
-                            sheet.Cells[$"F{rowCount}"].Value = invoiceItem.Product.Name + " | " + invoiceItem.Product.Code;
-                            sheet.Cells[$"G{rowCount}"].Value = invoiceItem.Quantity;
-                            sheet.Cells[$"H{rowCount}"].Value = invoiceItem.UnitSize;
-                            sheet.Cells[$"I{rowCount}"].Value = invoiceItem.TotalKg;
-                            sheet.Cells[$"J{rowCount}"].Value = invoiceItem.Pallets;
-
-                            sheet.Cells[$"G{rowCount}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                            sheet.Cells[$"H{rowCount}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                            sheet.Cells[$"I{rowCount}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                            sheet.Cells[$"J{rowCount}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-
-                            if (invoiceItem.BatchNumbers != null)
-                            {
-                                string originalString = invoiceItem.BatchNumbers;
-                                sheet.Cells[$"K{rowCount}"].Value = originalString;
-                                sheet.Cells[$"K{rowCount}"].Style.WrapText = true;
-                            }
-
-                            rowCount++;
-                        }
-                    }
-
-                    ep.Workbook.Worksheets.Delete("MasterSheet");
-
-                    int worksheetCount = 1;
-
-                    foreach (ExcelWorksheet worksheet in ep.Workbook.Worksheets)
-                    {
-                        worksheet.Cells["K5"].Value = "Page " + worksheetCount + " of " + pageCount;
-                        worksheetCount++;
-                    }
-
-                    Response.Clear();
-                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                    Response.AddHeader("content-disposition", "attachment; filename=" + "Delivery-Notes-Report-" + dateTime + ".xlsx");
-                    Response.BinaryWrite(ep.GetAsByteArray());
-                    Response.End();
+                    monthlyReportTool.PopulateExcelRow(sheet, rowCount, invoice, item);
+                    rowCount++;
                 }
             }
+
+            ep.Workbook.Worksheets.Delete("MasterSheet");
+
+            monthlyReportTool.AddPaginationHeader(ep, pageCount);
+
+            await WriteExcelResponse(ep, $"Delivery-Notes-Report-{GetSouthAfricanNow():yyyyMMdd-HHmm}.xlsx");
         }
 
 
+
+        private DateTime GetSouthAfricanNow()
+        {
+            return TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "South Africa Standard Time");
+        }
+
+        private async Task WriteExcelResponse(ExcelPackage ep, string fileName)
+        {
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", $"attachment; filename={fileName}");
+            Response.BinaryWrite(await ep.GetAsByteArrayAsync());
+            Response.End();
+        }
+        
         private List<Product> GetUserProducts(Invoice invoice = null)
         {
-
             string userId = User.Identity.GetUserId();
             Users user = _tdcContext.Users.FirstOrDefault(x => x.Id == userId && x.IsDeleted == false);
             Branch branch = _context.Branches.FirstOrDefault(b => b.Code == user.BranchCode);
