@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using InvoiceGenerator.Core.Models;
 
@@ -28,6 +26,14 @@ namespace InvoiceGenerator.Core.ViewModels.Invoices
         [Display(Name = "Transporter P/O Number")]
         [StringLength(75)]
         public string TransporterPoNumber { get; set; }
+
+        [Display(Name = "Driver")]
+        [StringLength(75)]
+        public string Driver { get; set; }
+
+        [Display(Name = "Vehicle Registration Number")]
+        [StringLength(75)]
+        public string VehicleRegistration { get; set; }
 
         [Required]
         [Display(Name = "From Branch")]

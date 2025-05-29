@@ -151,6 +151,8 @@ namespace InvoiceGenerator.Core.Controllers
             newInvoice.BranchCode = invoice.BranchCode;
             newInvoice.Status = invoice.Status;
             newInvoice.TransporterPoNumber = invoice.TransporterPoNumber;
+            newInvoice.Driver = invoice.Driver;
+            newInvoice.VehicleRegistration = invoice.VehicleRegistration;
 
             if (!string.IsNullOrEmpty(invoice.TransporterId))
             {
@@ -219,7 +221,6 @@ namespace InvoiceGenerator.Core.Controllers
             return RedirectToAction("Details", new { Id = newGuid });
         }
 
-
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -267,7 +268,9 @@ namespace InvoiceGenerator.Core.Controllers
                 ModifiedDate = invoice.ModifiedDate,
                 ModifiedUser = invoice.ModifiedUser,
                 TransporterPoNumber = invoice.TransporterPoNumber,
-                ShouldDownload = !string.IsNullOrWhiteSpace(shouldDownload)
+                ShouldDownload = !string.IsNullOrWhiteSpace(shouldDownload),
+                Driver = invoice.Driver,
+                VehicleRegistration = invoice.VehicleRegistration
             };
 
             return View(viewModel);
@@ -384,6 +387,8 @@ namespace InvoiceGenerator.Core.Controllers
                 invoiceInDb.ModifiedDate = dateTime;
                 invoiceInDb.ModifiedUser = User.Identity.Name;
                 invoiceInDb.TransporterPoNumber = data.TransporterPoNumber;
+                invoiceInDb.Driver = data.Driver;
+                invoiceInDb.VehicleRegistration = data.VehicleRegistration;
 
                 Setting settings = null;
 
@@ -593,8 +598,9 @@ namespace InvoiceGenerator.Core.Controllers
                         sheet.Cells["I9"].Value = invoice.PoNumber;
                         sheet.Cells["I11"].Value = invoice.InvoiceDate.Date.ToString("dd/MM/yyyy");
                         sheet.Cells["I13"].Value = Settings.CompanyName;
-                        sheet.Cells["D13"].Value = invoice.Client.Name;
-
+                        sheet.Cells["I22"].Value = invoice.VehicleRegistration;
+                        sheet.Cells["D13"].Value =  $"{invoice.Client.Name} ({invoice.Client.AccountNumber})";
+                        sheet.Cells["F47"].Value = $"Print Name : {invoice.Driver}";
                         if (invoice.Client.Address != "None Provided")
                         {
                             sheet.Cells["D19"].Value = invoice.Client.Address;

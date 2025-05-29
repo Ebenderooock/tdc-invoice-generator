@@ -39,6 +39,13 @@ namespace InvoiceGenerator.Core.ViewModels.Invoices
         
         [Display(Name = "Transporter P/O Number")]
         public string TransporterPoNumber { get; set; }
+        
+        [Display(Name = "Driver")]
+        public string Driver { get; set; }
+        
+        [Display(Name = "Vehicle Registration Number")]
+        public string VehicleRegistration { get; set; }
+
 
         public List<InvoiceItem> InvoiceItems { get; set; }
 

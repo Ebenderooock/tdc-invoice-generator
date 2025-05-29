@@ -79,7 +79,7 @@ namespace InvoiceGenerator.Core.Helper
             cells[GetColumn(MonthlyReportColumn.Delivery, row)].Value = invoice.BranchCode + invoice.GeneralWaybillNumber;
             cells[GetColumn(MonthlyReportColumn.Delivery, row)].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
             cells[GetColumn(MonthlyReportColumn.Transporter, row)].Value = invoice.Transporter?.Name ?? string.Empty;
-            cells[GetColumn(MonthlyReportColumn.TransporterPoNumber, row)].Value = invoice.Transporter?.Name ?? string.Empty;
+            cells[GetColumn(MonthlyReportColumn.TransporterPoNumber, row)].Value = invoice.TransporterPoNumber ?? string.Empty;
             cells[GetColumn(MonthlyReportColumn.Product, row)].Value = $"{item.Product?.Name} | {item.Product?.Code}";
             cells[GetColumn(MonthlyReportColumn.Quantity, row)].Value = item.Quantity;
             cells[GetColumn(MonthlyReportColumn.UnitSize, row)].Value = item.UnitSize;
