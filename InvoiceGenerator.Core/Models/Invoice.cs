@@ -44,6 +44,15 @@ namespace InvoiceGenerator.Core.Models
         public string GeneralWaybillNumber { get; set; }
 
         [Required]
+        [Display(Name = "Driver")]
+        [StringLength(75)]
+        public string Driver { get; set; }
+
+        [Display(Name = "Vehicle Registration Number")]
+        [StringLength(75)]
+        public string VehicleRegistration { get; set; }
+
+        [Required]
         [Display(Name = "Branch")]
         [StringLength(3)]
         public string BranchCode { get; set; }

@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <form action="@Url.Action("DownloadInvoiceExcel", "Invoices")" class="float-sm-none float-md-right mt-sm-3 mt-md-0">
-                            <input type="hidden" value="@Model.Id" name="Id"/>
+                            <input type="hidden" value="@Model.Id" name="Id" />
                             <button type="submit" class="btn btn-primary"><i class="far fa-file-excel"></i> Download Excel</button>
                         </form>
                     </div>
@@ -61,6 +61,16 @@
                         @Html.ValidationMessageFor(model => model.GeneralWaybillNumber, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                        @Html.LabelFor(model => model.Driver)
+                        @Html.EditorFor(model => model.Driver, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.Driver, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                        @Html.LabelFor(model => model.VehicleRegistration)
+                        @Html.EditorFor(model => model.VehicleRegistration, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.VehicleRegistration, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
                         @Html.LabelFor(model => model.BranchName)
                         @Html.EditorFor(model => model.BranchName, new { htmlAttributes = new { @class = "form-control", placeholder = "Branch", disabled = "disabled" } })
                         @Html.ValidationMessageFor(model => model.BranchCode, "", new { @class = "text-danger" })
@@ -69,11 +79,11 @@
                         @Html.LabelFor(model => model.Status)
                         @if (Model.Status == "PD")
                         {
-                            <input class="form-control" id="Status" value="Pending" disabled/>
+                            <input class="form-control" id="Status" value="Pending" disabled />
                         }
                         @if (Model.Status == "DL")
                         {
-                            <input class="form-control" id="Status" value="Delivered" disabled/>
+                            <input class="form-control" id="Status" value="Delivered" disabled />
                         }
                         @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                     </div>
@@ -106,39 +116,39 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="tab_logic">
                         <thead>
-                        <tr>
-                            <th class="text-center">Product</th>
-                            <th class="text-center">Qty</th>
-                            <th class="text-center">Unit Size</th>
-                            <th class="text-center">Total Kg</th>
-                            <th class="text-center">Total Pallets</th>
-                            <th class="text-center">Batch Numbers</th>
-                        </tr>
+                            <tr>
+                                <th class="text-center">Product</th>
+                                <th class="text-center">Qty</th>
+                                <th class="text-center">Unit Size</th>
+                                <th class="text-center">Total Kg</th>
+                                <th class="text-center">Total Pallets</th>
+                                <th class="text-center">Batch Numbers</th>
+                            </tr>
                         </thead>
                         <tbody id="invoiceBody">
-                        @foreach (InvoiceItem item in Model.InvoiceItems)
-                        {
-                            <tr>
-                                <td width="30%">
-                                    <input type="text" class="form-control" value="@item.Product.Name" readOnly/>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control" value="@item.Quantity" readOnly/>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control unitSize" value="@item.UnitSize" readOnly/>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control totalKg" value="@item.TotalKg" readOnly/>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control" value="@item.Pallets" readOnly/>
-                                </td>
-                                <td>
-                                    <input value="@item.BatchNumbers" class="tags" readOnly>
-                                </td>
-                            </tr>
-                        }
+                            @foreach (InvoiceItem item in Model.InvoiceItems)
+                            {
+                                <tr>
+                                    <td width="30%">
+                                        <input type="text" class="form-control" value="@item.Product.Name" readOnly />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="@item.Quantity" readOnly />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control unitSize" value="@item.UnitSize" readOnly />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control totalKg" value="@item.TotalKg" readOnly />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="@item.Pallets" readOnly />
+                                    </td>
+                                    <td>
+                                        <input value="@item.BatchNumbers" class="tags" readOnly>
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -155,7 +165,7 @@
         window.onload = function() {
               window.open('/Invoices/DownloadInvoiceExcel?id=@(Model.Id)', '_blank');
         };
-    </script>
+        </script>
     }
 
     @Scripts.Render("~/js/tagify")

@@ -27,7 +27,7 @@
                             @Html.LabelFor(model => model.InvoiceDate)
                             @Html.EditorFor(model => model.InvoiceDate, new { htmlAttributes = new { @class = "form-control datePicker" } })
                             @Html.ValidationMessageFor(model => model.InvoiceDate, "", new { @class = "text-danger" })
-                        </div>                        
+                        </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             @Html.LabelFor(model => model.PoNumber)
                             @Html.EditorFor(model => model.PoNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "P/O NUmber" } })
@@ -53,6 +53,17 @@
                             @Html.EditorFor(model => model.TransporterPoNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Transporter P/O NUmber" } })
                             @Html.ValidationMessageFor(model => model.TransporterPoNumber, "", new { @class = "text-danger" })
                         </div>
+                        <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                            @Html.LabelFor(model => model.Driver)
+                            @Html.EditorFor(model => model.Driver, new { htmlAttributes = new { @class = "form-control", placeholder = "Driver" } })
+                            @Html.ValidationMessageFor(model => model.Driver, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                            @Html.LabelFor(model => model.VehicleRegistration)
+                            @Html.EditorFor(model => model.VehicleRegistration, new { htmlAttributes = new { @class = "form-control", placeholder = "Vehicle Registration No" } })
+                            @Html.ValidationMessageFor(model => model.VehicleRegistration, "", new { @class = "text-danger" })
+                        </div>
+
                         <div class="col-md-12 mt-5">
                             <div class="row clearfix">
                                 <div class="col-md-12 mb-3">
@@ -61,30 +72,30 @@
                             </div>
                             <table class="table table-bordered table-striped" id="tab_logic">
                                 <thead>
-                                <tr>
-                                    <th class="text-center">Product</th>
-                                    <th class="text-center">Qty</th>
-                                    <th class="text-center">Unit Size</th>
-                                    <th class="text-center">Total Kg</th>
-                                    <th class="text-center">Total Pallets</th>
-                                    <th class="text-center">Batch Numbers</th>
-                                    <th class="text-center"></th>
-                                </tr>
+                                    <tr>
+                                        <th class="text-center">Product</th>
+                                        <th class="text-center">Qty</th>
+                                        <th class="text-center">Unit Size</th>
+                                        <th class="text-center">Total Kg</th>
+                                        <th class="text-center">Total Pallets</th>
+                                        <th class="text-center">Batch Numbers</th>
+                                        <th class="text-center"></th>
+                                    </tr>
                                 </thead>
                                 <tbody id="invoiceBody">
-                                <tr class="indexBlock">
-                                    <td width="30%">
-                                        <select class="select-to-select2 validateItem tabbable-input" name="InvoiceItems[0].ProductId" id="firstSelect" style="width: 100%"><option value="" disabled selected>Select Product</option></select>
-                                    </td>
-                                    <td><input type="number" min="0" name="InvoiceItems[0].Quantity" placeholder="Qty" class="form-control calculateKg quantity tabbable-input" /></td>
-                                    <td><input type="number" min="0" name="InvoiceItems[0].UnitSize" placeholder="Unit Size" class="form-control calculateKg unitSize tabbable-input"/></td>
-                                    <td><input type="number" min="0" name="InvoiceItems[0].TotalKg" placeholder="Total Kg" class="form-control totalKg tabbable-input" readonly /></td>
-                                    <td><input type="text" name="InvoiceItems[0].Pallets" placeholder="Total Pallets" class="form-control tabbable-input" /></td>
-                                    <td>
-                                        <input pattern="[0-9]+" tags="tags" name="InvoiceItems[0].BatchNumbers" placeholder="Batch Numbers" value="" class="tags">
-                                    </td>
-                                    <td><button type="button" class="btn btn-danger btn_remove delete_row">X</button></td>
-                                </tr>
+                                    <tr class="indexBlock">
+                                        <td width="30%">
+                                            <select class="select-to-select2 validateItem tabbable-input" name="InvoiceItems[0].ProductId" id="firstSelect" style="width: 100%"><option value="" disabled selected>Select Product</option></select>
+                                        </td>
+                                        <td><input type="number" min="0" name="InvoiceItems[0].Quantity" placeholder="Qty" class="form-control calculateKg quantity tabbable-input" /></td>
+                                        <td><input type="number" min="0" name="InvoiceItems[0].UnitSize" placeholder="Unit Size" class="form-control calculateKg unitSize tabbable-input" /></td>
+                                        <td><input type="number" min="0" name="InvoiceItems[0].TotalKg" placeholder="Total Kg" class="form-control totalKg tabbable-input" readonly /></td>
+                                        <td><input type="text" name="InvoiceItems[0].Pallets" placeholder="Total Pallets" class="form-control tabbable-input" /></td>
+                                        <td>
+                                            <input pattern="[0-9]+" tags="tags" name="InvoiceItems[0].BatchNumbers" placeholder="Batch Numbers" value="" class="tags">
+                                        </td>
+                                        <td><button type="button" class="btn btn-danger btn_remove delete_row">X</button></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
