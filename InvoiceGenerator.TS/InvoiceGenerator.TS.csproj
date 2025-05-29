@@ -206,18 +206,6 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Helper\ExcelTemplates\SublimeTastes\invoice-template.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Helper\ExcelTemplates\SublimeTastes\monthly-template.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Helper\ExcelTemplates\TDC\invoice-template.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Helper\ExcelTemplates\TDC\monthly-template.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Helper\ExcelTemplates\TrueSouth\invoice-template.xlsx" />
     <Content Include="Helper\ExcelTemplates\TrueSouth\monthly-template.xlsx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
