@@ -408,8 +408,8 @@ namespace InvoiceGenerator.Core.Controllers
                 invoiceInDb.ModifiedDate = dateTime;
                 invoiceInDb.ModifiedUser = User.Identity.Name;
                 invoiceInDb.TransporterPoNumber = data.TransporterPoNumber;
-                invoiceInDb.Driver = data.Driver;
-                invoiceInDb.VehicleRegistration = data.VehicleRegistration;
+                invoiceInDb.Driver = data.Driver ?? string.Empty;
+                invoiceInDb.VehicleRegistration = data.VehicleRegistration ?? string.Empty;
 
                 Setting settings = null;
 

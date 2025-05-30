@@ -14,5 +14,6 @@ public enum MonthlyReportColumn
     Pallets,
     BatchNumber,
     Transporter,
-    TransporterPoNumber
+    TransporterPoNumber,
+    AccountNumber
 }

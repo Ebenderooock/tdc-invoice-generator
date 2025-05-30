@@ -43,7 +43,6 @@ namespace InvoiceGenerator.Core.Models
         [StringLength(75)]
         public string GeneralWaybillNumber { get; set; }
 
-        [Required]
         [Display(Name = "Driver")]
         [StringLength(75)]
         public string Driver { get; set; }

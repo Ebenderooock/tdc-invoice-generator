@@ -19,16 +19,17 @@ namespace InvoiceGenerator.Core.Helper
             { MonthlyReportColumn.Date, "A" },
             { MonthlyReportColumn.Day, "B" },
             { MonthlyReportColumn.Company, "C" },
-            { MonthlyReportColumn.Poa, "D" },
-            { MonthlyReportColumn.Delivery, "E" },
-            { MonthlyReportColumn.Transporter, "F" },
-            { MonthlyReportColumn.TransporterPoNumber, "G" },
-            { MonthlyReportColumn.Product, "H" },
-            { MonthlyReportColumn.Quantity, "I" },
-            { MonthlyReportColumn.UnitSize, "J" },
-            { MonthlyReportColumn.TotalKg, "K" },
-            { MonthlyReportColumn.Pallets, "L" },
-            { MonthlyReportColumn.BatchNumber, "M" },
+            {MonthlyReportColumn.AccountNumber, "D" },
+            { MonthlyReportColumn.Poa, "E" },
+            { MonthlyReportColumn.Delivery, "F" },
+            { MonthlyReportColumn.Transporter, "G" },
+            { MonthlyReportColumn.TransporterPoNumber, "H" },
+            { MonthlyReportColumn.Product, "I" },
+            { MonthlyReportColumn.Quantity, "J" },
+            { MonthlyReportColumn.UnitSize, "K" },
+            { MonthlyReportColumn.TotalKg, "L" },
+            { MonthlyReportColumn.Pallets, "M" },
+            { MonthlyReportColumn.BatchNumber, "N" },
         };
 
 
@@ -75,6 +76,7 @@ namespace InvoiceGenerator.Core.Helper
             cells[GetColumn(MonthlyReportColumn.Day, row)].Value = invoice.InvoiceDate.DayOfWeek.ToString();
             cells[GetColumn(MonthlyReportColumn.Day, row)].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
             cells[GetColumn(MonthlyReportColumn.Company, row)].Value = invoice.Client.Name;
+            cells[GetColumn(MonthlyReportColumn.AccountNumber, row)].Value = invoice.Client.AccountNumber ?? string.Empty;
             cells[GetColumn(MonthlyReportColumn.Poa, row)].Value = invoice.PoNumber;
             cells[GetColumn(MonthlyReportColumn.Delivery, row)].Value = invoice.BranchCode + invoice.GeneralWaybillNumber;
             cells[GetColumn(MonthlyReportColumn.Delivery, row)].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;

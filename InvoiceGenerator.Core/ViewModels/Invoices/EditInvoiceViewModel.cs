@@ -35,9 +35,11 @@ namespace InvoiceGenerator.Core.ViewModels.Invoices
         [StringLength(75)]
         public string GeneralWaybillNumber { get; set; }
 
+
         [Display(Name = "Driver")]
         [StringLength(75)]
         public string Driver { get; set; }
+
 
         [Display(Name = "Vehicle Registration Number")]
         [StringLength(75)]
