@@ -1,0 +1,286 @@
+﻿Generator.Core.Models
+@model InvoiceGenerator.Core.ViewModels.Invoices.DetailInvoiceViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Invoice @Model.GeneralWaybillNumber</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid black; padding: 8px; }
+        .text-right { text-align: right; }
+        .no-border { border: none; }
+        @media print {
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div style="color: #5EBB47">FOOD SAFETY MANAGEMENT SYSTEM</div>
+                <div>
+                    Delivery Note
+                </div>
+            </div>
+            <div class="col-3">
+                <div>Doc. No.:	JP014R2</div>
+                <div>Rev. No.:	003 - 2023/11/02</div>
+                <div>Compiled By:	E.Klingbiel</div>
+                <div>Approved By:	K.Kilian</div>
+                <div>Page no:	Page 1 of 1</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <div>Co. Name : </div>
+            </div>
+            <div class="col-4">
+                <div>Technology Driven Concepts (Pty) Ltd</div>
+            </div>
+            <div class="col-2">
+                <div>Waybill No.	: </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <div>Reg No. : </div>
+            </div>
+            <div class="col-4">
+                <div>2018/014756/07</div>
+            </div>
+            <div class="col-2">
+                <div>P\O No.	: </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <div>Vat No. : </div>
+            </div>
+            <div class="col-4">
+                <div>4700281175</div>
+            </div>
+            <div class="col-2">
+                <div>Date	: </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <div style="color: #5EBB47">Receiver : </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+            <div class="col-2">
+                <div style="color: #5EBB47">Sender	: </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <div>Name : </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+            <div class="col-2">
+                <div>Name	: </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <div>Phone : </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+            <div class="col-2">
+                <div>Phone	: </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <div>Address : </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+            <div class="col-2">
+                <div>Address	: </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <div>Transporter : </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+            <div class="col-2">
+                <div>Reg No	: </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <div>Name : </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+            <div class="col-2">
+                <div>Phone	: </div>
+            </div>
+            <div class="col-4">
+                <div></div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            QTY
+                        </th>
+                        <th>
+                            UNIT SIZE
+                        </th>
+                        <th>
+                            TOTAL
+                        </th>
+                        <th>
+                            PRODUCT NAME
+                        </th>
+                        <th>
+                            BATCH NUMBERS
+                        </th>
+                        <th>
+                            PALLETS
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            DISPATCHING
+                        </th>
+                        <th>
+                            DRIVER
+                        </th>
+                        <th>
+                            RECEIVER
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Delivery Date :		</td>
+                        <td>Print Name :		</td>
+                        <td>Print Name :		</td>
+                    </tr>
+                    <tr>
+                        <td>Inspected By :		</td>
+                        <td>Signature :		</td>
+                        <td>Signature :		</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Logistics Manager
+                            Signature :
+                        </td>
+                        <td>
+                            By signing I declare that all products are in a good condition.
+                            All products were checked and quantities verified.
+                        </td>
+                        <td>Date Time:		</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    @*<h1>Invoice</h1>
+    <p><strong>Invoice #: </strong>@Model.InvoiceNumber</p>
+    <p><strong>Date: </strong>@Model.InvoiceDate.ToShortDateString()</p>
+    <p><strong>Client: </strong>@Model.ClientName</p>
+    <p><strong>Address: </strong>@Model.Address</p>*@
+
+    @*<table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th class="text-right">Quantity</th>
+                <th class="text-right">Unit Price</th>
+                <th class="text-right">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.LineItems)
+            {
+                <tr>
+                    <td>@item.Description</td>
+                    <td class="text-right">@item.Quantity</td>
+                    <td class="text-right">@item.UnitPrice.ToString("C")</td>
+                    <td class="text-right">@item.Subtotal.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right"><strong>Total</strong></td>
+                <td class="text-right"><strong>@Model.Total.ToString("C")</strong></td>
+            </tr>
+        </tfoot>
+    </table>*@
+
+    <br />
+    <button class="no-print" onclick="window.print()">Print Invoice</button>
+</body>
+</html>
