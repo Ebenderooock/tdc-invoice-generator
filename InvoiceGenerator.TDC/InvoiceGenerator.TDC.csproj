@@ -2430,6 +2430,7 @@
     <None Include="Scripts\jquery-3.7.1-vsdoc.js" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Views\Invoices\Print.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InvoiceGenerator.Core\InvoiceGenerator.Core.csproj">

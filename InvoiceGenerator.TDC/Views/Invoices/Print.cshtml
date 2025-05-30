@@ -1,286 +1,289 @@
-﻿Generator.Core.Models
-@model InvoiceGenerator.Core.ViewModels.Invoices.DetailInvoiceViewModel
+﻿@using InvoiceGenerator.Core.Models;
+@using InvoiceGenerator.Core.Helper;
+@model  InvoiceGenerator.Core.Models.Invoice
+@{
+    int totalPages = (int)Math.Ceiling((double)Model.InvoiceItems.Count / (double)18);
+
+    ApplicationDbContext _context = new ApplicationDbContext();
+
+    string logoUrl = Settings.LogoUrl;
+
+    Branch branch = _context.Branches.FirstOrDefault(b =>
+b.Code.Equals(Model.BranchCode, StringComparison.InvariantCultureIgnoreCase));
+
+    Layout = null;
+}
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Invoice @Model.GeneralWaybillNumber</title>
+    <title>
+        Delivery Note - @DateTime.Now.ToString("U")
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
-        body { font-family: Arial; margin: 40px; }
-        table { border-collapse: collapse; width: 100%; }
-        th, td { border: 1px solid black; padding: 8px; }
-        .text-right { text-align: right; }
-        .no-border { border: none; }
-        @media print {
-            .no-print { display: none; }
+        body {
+            margin: 5mm;
+            font-size: 12px;
+        }
+
+        .bordered {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .header-logo {
+            height: 50px;
+        }
+
+        .section-title {
+            background: #5EBB47;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .no-print {
+            margin-top: 20px;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        @@media print {
+            @@page {
+                margin: 0; /* Remove all default margins */
+                margin-top: 5mm;
+            }
+
+            .force-color {
+                -webkit-print-color-adjust: exact; /* Chrome/Edge */
+                print-color-adjust: exact; /* Firefox (partial) */
+            }
+
+            body {
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            .page-break {
+                page-break-after: always;
+            }
+
+            body {
+                margin: 0; /* Also remove margin from body */
+            }
+        }
+
+        .table-bordered td, .table-bordered th {
+            border: 1px solid black !important;
+        }
+
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            padding: 4px;
+        }
+
+        .text-small {
+            font-size: 8px;
         }
     </style>
 </head>
 <body>
+    @for (int i = 0; i < totalPages; i++)
+    {
+        <div class="container-fluid">
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6">
-                <div style="color: #5EBB47">FOOD SAFETY MANAGEMENT SYSTEM</div>
-                <div>
-                    Delivery Note
+            <!-- Header -->
+            <div class="row">
+                <div class="col-xs-2">
+                    <img src="@logoUrl" class="img-responsive header-logo" />
+                </div>
+                <div class="col-xs-6">
+                    <h4><strong class="force-color" style="color: #5EBB47">FOOD SAFETY MANAGEMENT SYSTEM</strong></h4>
+                    <h3><strong>Delivery Note</strong></h3>
+                </div>
+                <div class="col-xs-4">
+                    <table class="table table-bordered text-small">
+                        <tr><td>Doc. No.:</td><td>JP014R2</td></tr>
+                        <tr><td>Rev. No.:</td><td> 003 - 2023/11/02</td></tr>
+                        <tr><td>Compiled By:</td><td>E.Klingbiel</td></tr>
+                        <tr><td>Approved By:</td><td>K.Kilian</td></tr>
+                        <tr><td>Page No:</td><td>Page @(i + 1) of @totalPages</td></tr>
+                    </table>
                 </div>
             </div>
-            <div class="col-3">
-                <div>Doc. No.:	JP014R2</div>
-                <div>Rev. No.:	003 - 2023/11/02</div>
-                <div>Compiled By:	E.Klingbiel</div>
-                <div>Approved By:	K.Kilian</div>
-                <div>Page no:	Page 1 of 1</div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-2">
-                <div>Co. Name : </div>
+            <!-- Company / Receiver / Sender -->
+            <div class="row">
+                <div class="col-xs-4">
+                    <div class="bordered">
+                        <strong>Co. Name:</strong> Technology Driven Concepts (Pty) Ltd
+                        <br />
+                        <strong>Reg No:</strong> 2018/014756/07
+                        <br />
+                        <strong>Vat No:</strong> 4700281175
+                        <br />
+                        <br />
+                        <strong>Receiver</strong><br />
+                        Name: @Model.Client.Name (@Model.Client.AccountNumber)"; <br />
+                        Phone: @(Model.Client.ContactPersonPhoneNumber != "None Provided" ? Model.Client.ContactPersonPhoneNumber :"")
+                        <br />
+                        Address: @Model.Client.Address
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="bordered">
+                        <strong>Transporter</strong><br />
+                        Name: @Model.Transporter.Name <br />
+                        Reg No: @Model.VehicleRegistration <br />
+                        Phone: @Model.Transporter.ContactNumber
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="bordered">
+                        <strong>Waybill No:</strong> @(Model.GeneralWaybillNumber + Model.BranchCode) <br />
+                        <strong>PO No:</strong> @Model.PoNumber <br />
+                        <strong>Date:</strong> @Model.InvoiceDate.ToString("dd/MM/yyyy") <br />
+                        <br />
+                        <strong>Sender</strong><br />
+                        Name: @branch.ContactPerson <br />
+                        Phone: @branch.ContactNumber <br />
+                        Address: @branch.Address
+                    </div>
+                </div>
             </div>
-            <div class="col-4">
-                <div>Technology Driven Concepts (Pty) Ltd</div>
-            </div>
-            <div class="col-2">
-                <div>Waybill No.	: </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-2">
-                <div>Reg No. : </div>
-            </div>
-            <div class="col-4">
-                <div>2018/014756/07</div>
-            </div>
-            <div class="col-2">
-                <div>P\O No.	: </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2">
-                <div>Vat No. : </div>
-            </div>
-            <div class="col-4">
-                <div>4700281175</div>
-            </div>
-            <div class="col-2">
-                <div>Date	: </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2">
-                <div style="color: #5EBB47">Receiver : </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-            <div class="col-2">
-                <div style="color: #5EBB47">Sender	: </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2">
-                <div>Name : </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-            <div class="col-2">
-                <div>Name	: </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2">
-                <div>Phone : </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-            <div class="col-2">
-                <div>Phone	: </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2">
-                <div>Address : </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-            <div class="col-2">
-                <div>Address	: </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2">
-                <div>Transporter : </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-            <div class="col-2">
-                <div>Reg No	: </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2">
-                <div>Name : </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-            <div class="col-2">
-                <div>Phone	: </div>
-            </div>
-            <div class="col-4">
-                <div></div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <table>
+            <!-- Line Items Table -->
+            <table class="table table-bordered text-small" style="margin-top: 10px;">
                 <thead>
-                    <tr>
-                        <th>
-                            QTY
-                        </th>
-                        <th>
-                            UNIT SIZE
-                        </th>
-                        <th>
-                            TOTAL
-                        </th>
-                        <th>
-                            PRODUCT NAME
-                        </th>
-                        <th>
-                            BATCH NUMBERS
-                        </th>
-                        <th>
-                            PALLETS
-                        </th>
+                    <tr class="section-title">
+                        <th class="force-color" style="background-color: #5EBB47">QTY</th>
+                        <th class="force-color" style="background-color: #5EBB47">UNIT SIZE</th>
+                        <th class="force-color" style="background-color: #5EBB47">TOTAL</th>
+                        <th class="force-color" style="background-color: #5EBB47">PRODUCT NAME</th>
+                        <th class="force-color" style="background-color: black">BATCH NUMBERS</th>
+                        <th class="force-color" style="background-color: black">PALLETS</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach (var item in Model.InvoiceItems.Skip(i * 18).Take(18))
+                    {
+                        <tr>
+                            <td>@item.Quantity</td>
+                            <td>@item.UnitSize</td>
+                            <td>@item.TotalKg</td>
+                            <td>@item.Product.Name</td>
+                            <td>@item.BatchNumbers</td>
+                            <td>@item.Pallets</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
+
+            <!-- Dispatching Section -->
+            <div class="row">
+                <div class="col-xs-4 p-1">
+                    <div class="section-title">DISPATCHING</div>
+                    Delivery Date:  ____________________<br />
+                    Inspected By:   ____________________<br />
+                    Signature: ____________________
+                </div>
+                <div class="col-xs-4">
+                    <div class="section-title">DRIVER</div>
+                    Print Name: ____________________ <br />
+                    Signature: ____________________ <br />
+                    <p>
+                        By signing I declare all products are in good condition.<br />
+                        All products were checked and quantities verified.
+                    </p>
+                </div>
+                <div class="col-xs-4">
+                    <div class="section-title">RECEIVER</div>
+                    Print Name: ____________________ <br />
+                    Signature: ____________________ <br />
+                    Date: _____________<br />
+                    Time: _____________
+                </div>
+            </div>
+
+            <!-- Inspection Section -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="section-title">INSPECTION</div>
+                    <table class="table table-bordered text-small">
+                        <thead>
+                            <tr>
+                                <th>Check</th>
+                                <th>Comply (Yes/No)</th>
+                                <th>If x - Action Taken</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>All packaging / bags intact and not damaged</td>
+                                <td>( ) Yes  ( ) No</td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>No signs of infestation or pests / pest droppings</td>
+                                <td>( ) Yes  ( ) No</td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>Truck is in a clean condition</td>
+                                <td>( ) Yes  ( ) No</td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>No broken / mouldy pallets</td>
+                                <td>( ) Yes  ( ) No</td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>No signs of foreign matter / foreign bodies</td>
+                                <td>( ) Yes  ( ) No</td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>All straps intact, tarpaulin covers clean and not damaged</td>
+                                <td>( ) Yes  ( ) No</td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>COC / COA attached</td>
+                                <td>( ) Yes  ( ) No</td>
+                                <td>
+                                    Please email COC/COA
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Security seal no</td>
+                                <td>( ) Yes  ( ) No</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
-        <div class="row">
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            DISPATCHING
-                        </th>
-                        <th>
-                            DRIVER
-                        </th>
-                        <th>
-                            RECEIVER
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Delivery Date :		</td>
-                        <td>Print Name :		</td>
-                        <td>Print Name :		</td>
-                    </tr>
-                    <tr>
-                        <td>Inspected By :		</td>
-                        <td>Signature :		</td>
-                        <td>Signature :		</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Logistics Manager
-                            Signature :
-                        </td>
-                        <td>
-                            By signing I declare that all products are in a good condition.
-                            All products were checked and quantities verified.
-                        </td>
-                        <td>Date Time:		</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    }
+
+    <!-- Print Button -->
+    <div class="no-print">
+        <button onclick="window.print()" class="btn btn-primary">Print Delivery Note</button>
     </div>
-
-
-
-    @*<h1>Invoice</h1>
-    <p><strong>Invoice #: </strong>@Model.InvoiceNumber</p>
-    <p><strong>Date: </strong>@Model.InvoiceDate.ToShortDateString()</p>
-    <p><strong>Client: </strong>@Model.ClientName</p>
-    <p><strong>Address: </strong>@Model.Address</p>*@
-
-    @*<table>
-        <thead>
-            <tr>
-                <th>Description</th>
-                <th class="text-right">Quantity</th>
-                <th class="text-right">Unit Price</th>
-                <th class="text-right">Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.LineItems)
-            {
-                <tr>
-                    <td>@item.Description</td>
-                    <td class="text-right">@item.Quantity</td>
-                    <td class="text-right">@item.UnitPrice.ToString("C")</td>
-                    <td class="text-right">@item.Subtotal.ToString("C")</td>
-                </tr>
-            }
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3" class="text-right"><strong>Total</strong></td>
-                <td class="text-right"><strong>@Model.Total.ToString("C")</strong></td>
-            </tr>
-        </tfoot>
-    </table>*@
-
-    <br />
-    <button class="no-print" onclick="window.print()">Print Invoice</button>
 </body>
 </html>

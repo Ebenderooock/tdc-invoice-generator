@@ -275,6 +275,27 @@ namespace InvoiceGenerator.Core.Controllers
 
             return View(viewModel);
         }
+        public ActionResult Print(string id)
+        {
+            Invoice invoice = null;
+            if (User.IsInRole(RoleName.Admin))
+            {
+                invoice = _context.Invoices.Include(c => c.Client).Include(t => t.Transporter).Include(i => i.InvoiceItems.Select(it => it.Product))
+                    .SingleOrDefault(x => x.Id == id);
+            }
+            else
+            {
+                invoice = _context.Invoices.Include(c => c.Client).Include(t => t.Transporter).Include(i => i.InvoiceItems.Select(it => it.Product))
+                    .SingleOrDefault(x => x.Id == id && x.IsDeleted == false);
+            }
+
+            if (invoice == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(invoice);
+        }
 
         public ActionResult Edit(string id)
         {
